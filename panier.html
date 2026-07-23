@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panier — By Calyptha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<!-- EmailJS : envoie l'email automatiquement depuis le site, sans passer par la messagerie de l'acheteur -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+
+<header class="site-header" style="padding-bottom:22px;">
+  <div class="header-row">
+    <a class="logo" href="index.html"><span class="logo-badge">🎀</span> By Calyptha</a>
+    <nav class="header-nav">
+      <a href="index.html">← Continuer mes achats</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h2 class="section-title">🛍️ Mon panier</h2>
+  <div id="content" class="cart-layout">
+    <div id="lines"></div>
+    <div class="summary-box">
+      <div id="summaryLines"></div>
+      <label for="email">Ton adresse email *</label>
+      <input type="email" id="email" placeholder="toi@exemple.com" required>
+      <div class="notice">
+        📦 En validant, tu seras redirigé·e vers PayPal pour régler le montant exact. Une fois ta commande passée, tu recevras un email de Mondial Relay pour indiquer ton point de livraison — <strong>on ne peut pas expédier ton colis sans ça</strong>, pense donc à vérifier tes spams et à y répondre rapidement.
+      </div>
+      <button id="orderBtn" class="btn btn-primary btn-block" style="margin-top:18px;">Valider et payer</button>
+      <div id="orderStatus" style="margin-top:12px;font-size:.85rem;"></div>
+    </div>
+  </div>
+</main>
+
+<footer>By Calyptha — fait main, avec 💕 · Expédition via Mondial Relay</footer>
+
+<script src="produits.js"></script>
+<script src="panier.js"></script>
+<script>
+  /* =========================================================
+     CONFIGURATION — à adapter
+     ========================================================= */
+  const PAYPAL_ME_ID = "aysekahya";  // ton identifiant PayPal.me (sans "paypal.me/" devant)
+
+  // EmailJS : envoie automatiquement 2 emails à chaque commande,
+  // sans que l'acheteur ne voie ni ne modifie le contenu :
+  //   1. à toi : le récap de la commande (articles, frais de port, total, email acheteur)
+  //   2. à l'acheteur : une confirmation lui rappelant qu'il recevra
+  //      bientôt un email de Mondial Relay où il devra renseigner
+  //      ses infos de livraison.
+  //
+  // Configuration (une seule fois, gratuit) :
+  //   1. Crée un compte sur https://www.emailjs.com
+  //   2. "Email Services" → connecte ta boîte mail (ex: Outlook/Live)
+  //   3. Crée DEUX templates dans "Email Templates" :
+  //
+  //      Template A — pour TOI (reçu à ton adresse) :
+  //        "To Email" = ton adresse email en dur (ex: ayse.kahya@live.fr)
+  //        Objet suggéré : "Nouvelle demande de commande (en attente de paiement)"
+  //        Variables utilisées dans le corps : {{email_client}} {{articles}} {{frais_port}} {{total}}
+  //        Corps suggéré : "Nouvelle demande de commande, en attente de
+  //        paiement PayPal. Vérifie que le paiement est bien arrivé
+  //        avant de traiter la commande."
+  //
+  //      Template B — pour L'ACHETEUR :
+  //        "To Email" = {{email_client}}   (⚠️ mets bien la variable, pas une adresse fixe)
+  //        Objet suggéré : "Ta demande de commande — By Calyptha"
+  //        Variables utilisées dans le corps : {{articles}} {{frais_port}} {{total}}
+  //        Corps suggéré :
+  //        "Merci pour ta demande de commande !
+  //
+  //        Ceci n'est PAS encore une commande confirmée : elle ne sera
+  //        validée qu'à réception de ton paiement sur PayPal.
+  //
+  //        Récap : {{articles}}
+  //        Frais de port : {{frais_port}}
+  //        Total à régler sur PayPal : {{total}}
+  //
+  //        Une fois le paiement reçu, tu recevras un email de Mondial
+  //        Relay te demandant de choisir ton point relais — pense à
+  //        vérifier tes spams et à y répondre rapidement pour qu'on
+  //        puisse expédier ta commande."
+  //
+  //   4. Remplace les 4 valeurs ci-dessous (Account > General pour la Public Key)
+  const EMAILJS_PUBLIC_KEY = "sPxGPSXqLgIhK07Sf";
+  const EMAILJS_SERVICE_ID = "service_z6zx5xf";
+  const EMAILJS_TEMPLATE_ID_VENDEUSE = "template_8h98kck";
+  const EMAILJS_TEMPLATE_ID_ACHETEUR = "template_oxtn8o8";
+
+  if (window.emailjs && EMAILJS_PUBLIC_KEY !== "TA_PUBLIC_KEY") {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }
+
+  const linesEl = document.getElementById("lines");
+  const summaryEl = document.getElementById("summaryLines");
+  const panierIds = lirePanier();
+  const articles = panierIds
+    .map(id => PRODUITS.find(p => p.id === id))
+    .filter(p => p && !p.vendu);
+
+  function render() {
+    if (articles.length === 0) {
+      linesEl.innerHTML = `<div class="empty-state"><div class="icon">🧵</div>Ton panier est vide.<br><a class="btn btn-primary" style="margin-top:16px;" href="index.html">Voir la boutique</a></div>`;
+      summaryEl.innerHTML = "";
+      document.getElementById("orderBtn").style.display = "none";
+      return;
+    }
+
+    linesEl.innerHTML = articles.map(p => `
+      <div class="cart-line">
+        <img src="${p.photos[0]}" alt="${p.nom}">
+        <div>
+          <strong>${p.nom}</strong><br>
+          <span style="color:var(--plum-soft)">${formaterPrix(p.prix)}</span><br>
+          <button class="rm" data-id="${p.id}">Retirer</button>
+        </div>
+        <div style="font-weight:900;">${formaterPrix(p.prix)}</div>
+      </div>
+    `).join("");
+
+    const sousTotal = articles.reduce((s, p) => s + p.prix, 0);
+    const port = calculerFraisPort(articles.length);
+    const total = sousTotal + port;
+
+    summaryEl.innerHTML = `
+      <div class="summary-row"><span>Sous-total (${articles.length} article${articles.length>1?"s":""})</span><span>${formaterPrix(sousTotal)}</span></div>
+      <div class="summary-row"><span>Frais de port (Mondial Relay)</span><span>${formaterPrix(port)}</span></div>
+      <div class="summary-row total"><span>Total</span><span>${formaterPrix(total)}</span></div>
+    `;
+
+    document.querySelectorAll(".rm").forEach(btn => {
+      btn.addEventListener("click", () => {
+        retirerDuPanier(btn.dataset.id);
+        location.reload();
+      });
+    });
+  }
+
+  render();
+
+  document.getElementById("orderBtn").addEventListener("click", async () => {
+    const emailInput = document.getElementById("email");
+    const status = document.getElementById("orderStatus");
+    const email = emailInput.value.trim();
+
+    if (!email || !email.includes("@")) {
+      status.style.color = "#c0392b";
+      status.textContent = "Merci d'indiquer une adresse email valide.";
+      emailInput.focus();
+      return;
+    }
+
+    const sousTotal = articles.reduce((s, p) => s + p.prix, 0);
+    const port = calculerFraisPort(articles.length);
+    const total = sousTotal + port;
+    const listeArticles = articles.map(p => `- ${p.nom} (${formaterPrix(p.prix)})`).join("\n");
+
+    const btn = document.getElementById("orderBtn");
+    btn.disabled = true;
+    btn.textContent = "Envoi en cours...";
+
+    const lienPaypal = `https://paypal.me/${encodeURIComponent(PAYPAL_ME_ID)}/${total.toFixed(2)}EUR`;
+
+    try {
+      if (!window.emailjs || EMAILJS_PUBLIC_KEY === "TA_PUBLIC_KEY") {
+        throw new Error("EmailJS non configuré");
+      }
+      const donnees = {
+        email_client: email,
+        articles: listeArticles,
+        frais_port: formaterPrix(port),
+        total: formaterPrix(total)
+      };
+      await Promise.all([
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID_VENDEUSE, donnees),
+        emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID_ACHETEUR, donnees)
+      ]);
+
+      status.style.color = "var(--green-ok)";
+      status.innerHTML = `✅ Demande de commande envoyée ! Un email vient de partir à ${email}. Redirection vers PayPal pour régler <strong>${formaterPrix(total)}</strong> — ta commande sera confirmée à réception du paiement.`;
+      btn.textContent = "Commande envoyée ✓";
+      localStorage.removeItem("crochet_panier_v1");
+
+      window.location.href = lienPaypal;
+
+    } catch (err) {
+      status.style.color = "#c0392b";
+      status.innerHTML = `L'envoi automatique n'est pas encore activé (configuration EmailJS à finaliser). En attendant, tu peux quand même payer via <a href="${lienPaypal}" target="_blank" style="color:var(--rose-deep);font-weight:800;">PayPal</a> — pense juste à envoyer ton email de confirmation à ${email ? "la vendeuse" : ""} manuellement.`;
+      btn.disabled = false;
+      btn.textContent = "Valider et payer";
+    }
+  });
+</script>
+</body>
+</html>

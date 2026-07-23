@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajouter un article — By Calyptha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" style="padding-bottom:22px;">
+  <div class="header-row">
+    <a class="logo" href="index.html"><span class="logo-badge">🧶</span> By Calyptha</a>
+    <nav class="header-nav"><a href="index.html">← Retour à la boutique</a></nav>
+  </div>
+</header>
+
+<main style="max-width:720px;">
+  <h2 class="section-title">➕ Ajouter un nouvel article</h2>
+  <div class="notice" style="margin-bottom:24px;">
+    Cette page ne publie rien automatiquement (le site est 100% gratuit, sans serveur).
+    Remplis le formulaire, un bloc de code est généré en bas : <strong>copie-le et colle-le
+    dans le fichier <code>produits.js</code></strong>, juste après la ligne
+    <code>const PRODUITS = [</code>. Pense aussi à mettre tes photos dans le dossier
+    <code>images/</code> avec le même nom que celui indiqué ici.
+  </div>
+
+  <label>Nom de l'article</label>
+  <input type="text" id="nom" placeholder="Ex: Doudou lapin rose">
+
+  <label>Prix (€)</label>
+  <input type="number" id="prix" step="0.5" placeholder="Ex: 22">
+
+  <label>Catégorie</label>
+  <input type="text" id="categorie" placeholder="Ex: Doudous, Sacs, Accessoires...">
+
+  <label>Description</label>
+  <textarea id="description" rows="5" placeholder="Taille, matière, entretien, particularités..."></textarea>
+
+  <label>Noms des fichiers photos (un par ligne, déjà placés dans le dossier images/)</label>
+  <textarea id="photos" rows="3" placeholder="doudou-lapin-1.jpg
+doudou-lapin-2.jpg"></textarea>
+
+  <button class="btn btn-primary btn-block" style="margin-top:20px;" id="genBtn">Générer le code</button>
+
+  <div id="resultWrap" style="display:none;margin-top:26px;">
+    <label>Code à copier-coller dans produits.js</label>
+    <textarea id="result" rows="14" style="font-family:monospace;font-size:.82rem;"></textarea>
+    <button class="btn btn-ghost btn-block" style="margin-top:10px;" id="copyBtn">Copier le code</button>
+  </div>
+</main>
+
+<footer>By Calyptha — fait main, avec 💕</footer>
+
+<script>
+  function slugifier(texte) {
+    return texte
+      .toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+  }
+
+  document.getElementById("genBtn").addEventListener("click", () => {
+    const nom = document.getElementById("nom").value.trim();
+    const prix = parseFloat(document.getElementById("prix").value) || 0;
+    const categorie = document.getElementById("categorie").value.trim() || "Créations";
+    const description = document.getElementById("description").value.trim();
+    const photosLines = document.getElementById("photos").value
+      .split("\n").map(l => l.trim()).filter(Boolean)
+      .map(l => `images/${l}`);
+
+    if (!nom) { alert("Indique au moins un nom d'article."); return; }
+
+    const id = slugifier(nom) + "-" + Math.floor(Math.random() * 900 + 100);
+    const photosCode = photosLines.length
+      ? photosLines.map(p => `      "${p}"`).join(",\n")
+      : `      "images/mets-ta-photo-ici.jpg"`;
+
+    const code =
+`  {
+    id: "${id}",
+    nom: "${nom.replace(/"/g, '\\"')}",
+    prix: ${prix},
+    description: "${description.replace(/"/g, '\\"').replace(/\n/g, "\\n")}",
+    categorie: "${categorie.replace(/"/g, '\\"')}",
+    vendu: false,
+    photos: [
+${photosCode}
+    ]
+  },`;
+
+    document.getElementById("result").value = code;
+    document.getElementById("resultWrap").style.display = "block";
+  });
+
+  document.getElementById("copyBtn").addEventListener("click", () => {
+    const ta = document.getElementById("result");
+    ta.select();
+    document.execCommand("copy");
+    const btn = document.getElementById("copyBtn");
+    btn.textContent = "Copié ✓";
+    setTimeout(() => btn.textContent = "Copier le code", 1500);
+  });
+</script>
+</body>
+</html>

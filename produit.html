@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Article — By Calyptha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header" style="padding-bottom:22px;">
+  <div class="header-row">
+    <a class="logo" href="index.html"><span class="logo-badge">🎀</span> By Calyptha</a>
+    <nav class="header-nav">
+      <a href="panier.html" class="cart-pill">🛍️ Panier <span data-cart-count style="display:none;">0</span></a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <!-- injecté en JS -->
+</main>
+
+<footer>By Calyptha — fait main, avec 💕 · Expédition via Mondial Relay</footer>
+
+<script src="produits.js"></script>
+<script src="panier.js"></script>
+<script>
+  const params = new URLSearchParams(location.search);
+  const id = params.get("id");
+  const p = PRODUITS.find(pr => pr.id === id);
+  const main = document.getElementById("main");
+
+  if (!p) {
+    main.innerHTML = `<div class="empty-state"><div class="icon">🔍</div>Cet article n'existe pas (ou plus).<br><a class="btn btn-primary" style="margin-top:16px;" href="index.html">Retour à la boutique</a></div>`;
+  } else {
+    document.title = p.nom + " — By Calyptha";
+
+    main.innerHTML = `
+      <a href="index.html" class="back-link">← Retour à la boutique</a>
+      <div class="product-detail">
+        <div>
+          <div class="gallery-main"><img id="mainImg" src="${p.photos[0]}" alt="${p.nom}"></div>
+          <div class="gallery-thumbs">
+            ${p.photos.map((src, i) => `<img src="${src}" class="${i===0?'active':''}" data-src="${src}">`).join("")}
+          </div>
+        </div>
+        <div>
+          <h1 class="pd-title">${p.nom}</h1>
+          <div class="pd-price">${formaterPrix(p.prix)}</div>
+          <div class="pd-meta">
+            <span class="chip">${p.categorie}</span>
+            <span class="chip">${p.vendu ? "Vendu" : "Disponible"}</span>
+          </div>
+          <div class="pd-desc">${p.description}</div>
+          <button id="addBtn" class="btn btn-primary btn-block" ${p.vendu ? "disabled" : ""}>
+            ${p.vendu ? "Article vendu" : "Ajouter au panier 🛍️"}
+          </button>
+          <div class="notice">📦 Envoi via Mondial Relay. Le montant exact des frais de port est calculé automatiquement dans ton panier.</div>
+        </div>
+      </div>
+    `;
+
+    document.querySelectorAll(".gallery-thumbs img").forEach(thumb => {
+      thumb.addEventListener("click", () => {
+        document.getElementById("mainImg").src = thumb.dataset.src;
+        document.querySelectorAll(".gallery-thumbs img").forEach(t => t.classList.remove("active"));
+        thumb.classList.add("active");
+      });
+    });
+
+    const addBtn = document.getElementById("addBtn");
+    if (!p.vendu) {
+      addBtn.addEventListener("click", () => {
+        ajouterAuPanier(p.id);
+        addBtn.textContent = "Ajouté ✓ — voir le panier";
+        addBtn.classList.add("btn-ghost");
+        addBtn.onclick = () => location.href = "panier.html";
+      });
+    }
+  }
+</script>
+</body>
+</html>

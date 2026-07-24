@@ -18,7 +18,7 @@
 */
 
 const PRODUITS = [
-    {
+  {
     id: "pochette-livres-de-poche-ou-manga-rose-blanc-936",
     nom: "Pochette Livres de Poche ou Manga Rose/Blanc",
     prix: 8,
@@ -29,8 +29,8 @@ const PRODUITS = [
       "images/pochette-livres-rose-blanc.jpg",
       "images/pochette-livres-rose-blanc2.jpg"
     ]
-    },
-    {
+  },
+  {
     id: "pochette-livres-de-poche-ou-manga-rose-vert-568",
     nom: "Pochette Livres de Poche ou Manga Rose/Vert",
     prix: 8,
@@ -42,8 +42,8 @@ const PRODUITS = [
       "images/pochette-livres-rose-vert2.jpg",
       "images/pochette-livres-rose-vert.jpg"
     ]
-    },
-    {
+  },
+  {
     id: "pochette-livres-de-poche-ou-manga-jaune-marron-259",
     nom: "Pochette Livres de Poche ou Manga Jaune/Marron",
     prix: 8,
@@ -54,8 +54,8 @@ const PRODUITS = [
       "images/pochette-livres-jaune-marron.jpg",
       "images/pochette-livres-jaune-marron2.jpg"
     ]
-    },
-    {
+  },
+  {
     id: "porte-cartes-bleu-150",
     nom: "Porte-Cartes Bleu",
     prix: 5,
@@ -66,8 +66,8 @@ const PRODUITS = [
       "images/porte-monnaie-bleu.jpg",
       "images/porte-monnaie-bleu2.jpg"
     ]
-    },
-    {
+  },
+  {
     id: "marque-page-etoile-662",
     nom: "Marque-Page Etoile Vert",
     prix: 3,
@@ -77,8 +77,8 @@ const PRODUITS = [
     photos: [
       "images/marque-page-etoile-vert.jpg"
     ]
-    },
-    {
+  },
+  {
     id: "marque-page-etoile-990",
     nom: "Marque-Page Etoile Jaune",
     prix: 3,
@@ -88,8 +88,8 @@ const PRODUITS = [
     photos: [
       "images/marque-page-etoile-jaune.jpg"
     ]
-    },
-    {
+  },
+  {
     id: "marque-page-etoile-420",
     nom: "Marque-Page Etoile Blanc",
     prix: 3,
@@ -99,8 +99,8 @@ const PRODUITS = [
     photos: [
       "images/marque-page-etoile-blanc.jpg"
     ]
-    },
-   {
+  },
+  {
     id: "pochette-liseuse-ou-tablette-bordeaux-182",
     nom: "Pochette Liseuse ou Tablette Bordeaux",
     prix: 17,

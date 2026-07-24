@@ -134,5 +134,5 @@ const PRODUITS = [
       "images/sous-verre-etoile.jpg",
       "images/sous-verre-etoile2.jpg"
     ]
-  },
+  }
 ];

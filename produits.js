@@ -44,6 +44,30 @@ const PRODUITS = [
     ]
     },
     {
+    id: "pochette-livres-de-poche-ou-manga-jaune-marron-259",
+    nom: "Pochette Livres de Poche ou Manga Jaune/Marron",
+    prix: 8,
+    description: "Pochette pour ranger vos livres de poche ou vos mangas, avec un petit noeud tout coquette pour le refermer <3\n\nThème automnale !",
+    categorie: "Pochette",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-jaune-marron.jpg",
+      "images/pochette-livres-jaune-marron2.jpg"
+    ]
+    },
+    {
+    id: "porte-cartes-bleu-150",
+    nom: "Porte-Cartes Bleu",
+    prix: 5,
+    description: "Petit porte-cartes tout mignon qui se referme avec un bouton en forme de pomme <3",
+    categorie: "Porte-Cartes",
+    vendu: false,
+    photos: [
+      "images/porte-monnaie-bleu.jpg",
+      "images/porte-monnaie-bleu2.jpg"
+    ]
+    },
+    {
     id: "marque-page-etoile-662",
     nom: "Marque-Page Etoile Vert",
     prix: 3,
@@ -86,5 +110,29 @@ const PRODUITS = [
     photos: [
       "images/pochette-bordeaux-liseuse.jpg"
     ]
-  }
+  },
+  {
+    id: "sous-verre-etoile-rose-651",
+    nom: "Sous-Verre Etoile Rose",
+    prix: 4,
+    description: "Petit sous-verre en forme d'étoile tout rose, tout joli !",
+    categorie: "Sous-Verre",
+    vendu: false,
+    photos: [
+      "images/sous-verre-etoile-rose.jpg",
+      "images/sous-verre-etoile-rose2.jpg"
+    ]
+  }, 
+  {
+    id: "sous-verre-etoile-brun-et-vert-311",
+    nom: "Sous-Verre Etoile Brun et Vert",
+    prix: 4,
+    description: "Petit sous-verre en forme d'étoile marron avec du vert autour.",
+    categorie: "Sous-Verre",
+    vendu: false,
+    photos: [
+      "images/sous-verre-etoile.jpg",
+      "images/sous-verre-etoile2.jpg"
+    ]
+  },
 ];

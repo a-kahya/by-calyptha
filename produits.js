@@ -21,7 +21,7 @@ const PRODUITS = [
   {
     id: "pochette-livres-de-poche-ou-manga-rose-blanc-936",
     nom: "Pochette Livres de Poche ou Manga Rose/Blanc",
-    prix: 8,
+    prix: 7,
     description: "Pochette pour ranger vos livres de poche ou vos mangas, avec un petit noeud tout coquette pour le refermer <3",
     categorie: "Pochette",
     vendu: false,
@@ -33,7 +33,7 @@ const PRODUITS = [
   {
     id: "pochette-livres-de-poche-ou-manga-rose-vert-568",
     nom: "Pochette Livres de Poche ou Manga Rose/Vert",
-    prix: 8,
+    prix: 7,
     description: "Pochette pour ranger vos livres de poche ou vos mangas, avec un petit noeud tout coquette pour le refermer <3",
     categorie: "Pochette",
     vendu: false,
@@ -46,7 +46,7 @@ const PRODUITS = [
   {
     id: "pochette-livres-de-poche-ou-manga-vert-blanc-303",
     nom: "Pochette Livres de Poche ou Manga Vert/Blanc",
-    prix: 8,
+    prix: 7,
     description: "Pochette pour ranger vos livres de poche ou vos mangas, avec un petit noeud tout coquette pour le refermer <3",
     categorie: "Pochette",
     vendu: false,
@@ -59,7 +59,7 @@ const PRODUITS = [
   {
     id: "pochette-livres-de-poche-ou-manga-jaune-marron-259",
     nom: "Pochette Livres de Poche ou Manga Jaune/Marron",
-    prix: 8,
+    prix: 7,
     description: "Pochette pour ranger vos livres de poche ou vos mangas, avec un petit noeud tout coquette pour le refermer <3\n\nThème automnale !",
     categorie: "Pochette",
     vendu: false,
@@ -84,7 +84,7 @@ const PRODUITS = [
     {
     id: "pochette-livres-de-poche-ou-manga-rose-beige-714",
     nom: "Pochette Livres de Poche ou Manga Rose/Beige",
-    prix: 8,
+    prix: 7,
     description: "Pochette pour ranger vos livres de poche ou vos mangas, avec un petit noeud tout mignon pour le refermer <3\nThème coquette!",
     categorie: "Pochette",
     vendu: false,
@@ -97,7 +97,7 @@ const PRODUITS = [
   {
     id: "pochette-livres-de-poche-ou-manga-bordeaux-mauve-964",
     nom: "Pochette Livres de Poche ou Manga Bordeaux/Mauve",
-    prix: 8,
+    prix: 7,
     description: "Pochette pour ranger vos livres de poche ou vos mangas, avec un petit noeud tout coquette pour le refermer <3\n\nThème automnale !",
     categorie: "Pochette",
     vendu: false,
@@ -110,7 +110,7 @@ const PRODUITS = [
   {
     id: "porte-cartes-bleu-150",
     nom: "Porte-Cartes Bleu",
-    prix: 5,
+    prix: 4,
     description: "Petit porte-cartes tout mignon qui se referme avec un bouton en forme de pomme <3",
     categorie: "Porte-Cartes",
     vendu: false,
@@ -122,7 +122,7 @@ const PRODUITS = [
   {
     id: "marque-page-etoile-662",
     nom: "Marque-Page Etoile Vert",
-    prix: 3,
+    prix: 2,
     description: "Marque-page en forme d'étoile. Adorable format qui rajoute un peu de douceur à vos lectures <3",
     categorie: "Marque-page",
     vendu: false,
@@ -133,7 +133,7 @@ const PRODUITS = [
   {
     id: "marque-page-etoile-990",
     nom: "Marque-Page Etoile Jaune",
-    prix: 3,
+    prix: 2,
     description: "Marque-page en forme d'étoile. Adorable format qui rajoute un peu de douceur à vos lectures <3",
     categorie: "Marque-page",
     vendu: false,
@@ -144,7 +144,7 @@ const PRODUITS = [
   {
     id: "marque-page-etoile-420",
     nom: "Marque-Page Etoile Blanc",
-    prix: 3,
+    prix: 2,
     description: "Marque-page en forme d'étoile. Adorable format qui rajoute un peu de douceur à vos lectures <3",
     categorie: "Marque-page",
     vendu: false,
@@ -155,7 +155,7 @@ const PRODUITS = [
   {
     id: "pochette-liseuse-ou-tablette-bordeaux-182",
     nom: "Pochette Liseuse ou Tablette Bordeaux",
-    prix: 17,
+    prix: 14,
     description: "Pochette bordeaux et noire pour liseuse, tablette, ou autre (produits de beauté, d'hygiène, etc.) avec un petit noeud en dentelle ainsi qu'un bouton en forme de coeur. Pièce unique faite à la main avec amour <3\n\nDimensions : environ 15cm (longueur) x 18 cm (largeur)",
     categorie: "Pochette",
     vendu: false,

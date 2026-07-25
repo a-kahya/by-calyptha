@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajouter à la galerie — By Calyptha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+<header class="site-header" style="padding-bottom:22px;">
+  <div class="header-row">
+    <a class="logo" href="index.html"><span class="logo-badge">🎀</span> By Calyptha</a>
+    <nav class="header-nav"><a href="galerie.html">← Retour à la galerie</a></nav>
+  </div>
+</header>
+ 
+<main style="max-width:720px;">
+  <h2 class="section-title">➕ Ajouter une photo à la galerie</h2>
+  <div class="notice" style="margin-bottom:24px;">
+    Comme pour les articles, cette page ne publie rien automatiquement.
+    Mets d'abord ta/tes photo(s) dans le dossier <code>images/</code>, indique
+    ici leur(s) nom(s) de fichier, puis <strong>copie le code généré en bas et
+    colle-le dans <code>galerie.js</code></strong>, juste après la ligne
+    <code>const GALERIE = [</code>.
+  </div>
+ 
+  <label>Nom(s) des fichiers photo (un par ligne, déjà placés dans images/)</label>
+  <textarea id="photos" rows="5" placeholder="creation-2022-1.jpg
+creation-2022-2.jpg
+creation-2023-1.jpg"></textarea>
+ 
+  <button class="btn btn-primary btn-block" style="margin-top:20px;" id="genBtn">Générer le code</button>
+ 
+  <div id="resultWrap" style="display:none;margin-top:26px;">
+    <label>Code à copier-coller dans galerie.js</label>
+    <textarea id="result" rows="10" style="font-family:monospace;font-size:.82rem;"></textarea>
+    <button class="btn btn-ghost btn-block" style="margin-top:10px;" id="copyBtn">Copier le code</button>
+  </div>
+</main>
+ 
+<footer>By Calyptha — fait main, avec 💕</footer>
+ 
+<script>
+  document.getElementById("genBtn").addEventListener("click", () => {
+    const lignes = document.getElementById("photos").value
+      .split("\n").map(l => l.trim()).filter(Boolean);
+ 
+    if (lignes.length === 0) { alert("Indique au moins un nom de fichier."); return; }
+ 
+    const code = lignes.map(fichier => {
+      const idAlea = "g" + Math.floor(Math.random() * 900000 + 100000);
+      return `  { id: "${idAlea}", photo: "images/${fichier}" },`;
+    }).join("\n");
+ 
+    document.getElementById("result").value = code;
+    document.getElementById("resultWrap").style.display = "block";
+  });
+ 
+  document.getElementById("copyBtn").addEventListener("click", () => {
+    const ta = document.getElementById("result");
+    ta.select();
+    document.execCommand("copy");
+    const btn = document.getElementById("copyBtn");
+    btn.textContent = "Copié ✓";
+    setTimeout(() => btn.textContent = "Copier le code", 1500);
+  });
+</script>
+</body>
+</html>

@@ -304,3 +304,7 @@ footer{
 @media (min-width:1024px){
   .gallery-grid{grid-template-columns:repeat(8,1fr);gap:12px;}
 }
+
+.category-section{
+  margin-bottom:36px;
+}

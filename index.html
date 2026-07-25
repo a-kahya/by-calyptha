@@ -31,8 +31,7 @@
 </header>
 
 <main>
-  <h2 class="section-title">✨ Toute la boutique</h2>
-  <div id="grid" class="grid"></div>
+  <div id="grid"></div>
 </main>
 
 <footer>By Calyptha — fait main, avec 💕 · Expédition via Mondial Relay</footer>
@@ -40,31 +39,44 @@
 <script src="produits.js"></script>
 <script src="panier.js"></script>
 <script>
-  const grid = document.getElementById("grid");
+  const container = document.getElementById("grid");
 
-  // Articles disponibles d'abord, puis vendus (à la fin, grisés)
-  const tries = [...PRODUITS].sort((a, b) => (a.vendu === b.vendu) ? 0 : a.vendu ? 1 : -1);
-
-  if (tries.length === 0) {
-    grid.innerHTML = `<div class="empty-state"><div class="icon">🧵</div>La boutique est vide pour le moment, reviens bientôt !</div>`;
+  if (PRODUITS.length === 0) {
+    container.innerHTML = `<div class="empty-state"><div class="icon">🧵</div>La boutique est vide pour le moment, reviens bientôt !</div>`;
   }
 
-  tries.forEach(p => {
-    const card = document.createElement("a");
-    card.href = `produit.html?id=${encodeURIComponent(p.id)}`;
-    card.className = "card";
-    card.innerHTML = `
-      <div class="thumb">
-        ${p.vendu ? `<span class="badge-sold">Vendu</span>` : ""}
-        <img src="${p.photos[0]}" alt="${p.nom}" loading="lazy">
-      </div>
-      <div class="body">
-        <h3>${p.nom}</h3>
-        <div class="price">${formaterPrix(p.prix)}</div>
-      </div>
-    `;
-    if (p.vendu) card.style.opacity = "0.55";
-    grid.appendChild(card);
+  // Catégories dans l'ordre où elles apparaissent dans produits.js
+  const categories = [...new Set(PRODUITS.map(p => p.categorie))];
+
+  categories.forEach(cat => {
+    const produitsCategorie = PRODUITS
+      .filter(p => p.categorie === cat)
+      .sort((a, b) => (a.vendu === b.vendu) ? 0 : a.vendu ? 1 : -1);
+
+    const section = document.createElement("section");
+    section.className = "category-section";
+    section.innerHTML = `<h2 class="section-title">✨ ${cat}</h2><div class="grid"></div>`;
+    const grid = section.querySelector(".grid");
+
+    produitsCategorie.forEach(p => {
+      const card = document.createElement("a");
+      card.href = `produit.html?id=${encodeURIComponent(p.id)}`;
+      card.className = "card";
+      card.innerHTML = `
+        <div class="thumb">
+          ${p.vendu ? `<span class="badge-sold">Vendu</span>` : ""}
+          <img src="${p.photos[0]}" alt="${p.nom}" loading="lazy">
+        </div>
+        <div class="body">
+          <h3>${p.nom}</h3>
+          <div class="price">${formaterPrix(p.prix)}</div>
+        </div>
+      `;
+      if (p.vendu) card.style.opacity = "0.55";
+      grid.appendChild(card);
+    });
+
+    container.appendChild(section);
   });
 </script>
 <script>
@@ -83,4 +95,5 @@
 <!-- GoatCounter : comptage des visites, respectueux de la vie privée -->
 <script data-goatcounter="https://by-calyptha.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+</body>
 </html>

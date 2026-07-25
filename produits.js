@@ -68,6 +68,32 @@ const PRODUITS = [
       "images/pochette-livres-jaune-marron2.jpg"
     ]
   },
+    {
+    id: "pochette-livres-de-poche-ou-manga-bleu-352",
+    nom: "Pochette Livres de Poche ou Manga Bleu",
+    prix: 7,
+    description: "Petite pochette avec un noeud décoratif <3",
+    categorie: "Pochette",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-bleu.jpg",
+      "images/pochette-livres-bleu2.jpg",
+      "images/pochette-livres-bleu3.jpg"
+    ]
+  },
+    {
+    id: "pochette-livres-de-poche-ou-manga-rose-beige-714",
+    nom: "Pochette Livres de Poche ou Manga Rose/Beige",
+    prix: 8,
+    description: "Pochette pour ranger vos livres de poche ou vos mangas, avec un petit noeud tout mignon pour le refermer <3\nThème coquette!",
+    categorie: "Pochette",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-rose-beige.jpg",
+      "images/pochette-livres-rose-beige2.jpg",
+      "images/pochette-livres-rose-beige3.jpg"
+    ]
+  },
   {
     id: "pochette-livres-de-poche-ou-manga-bordeaux-mauve-964",
     nom: "Pochette Livres de Poche ou Manga Bordeaux/Mauve",

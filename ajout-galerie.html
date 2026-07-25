@@ -52,7 +52,7 @@ creation-2023-1.jpg"></textarea>
  
     const code = lignes.map(fichier => {
       const idAlea = "g" + Math.floor(Math.random() * 900000 + 100000);
-      return `  { id: "${idAlea}", photo: "images/${fichier}" },`;
+      return `  { id: "${idAlea}", photo: "images/galerie/${fichier}" },`;
     }).join("\n");
  
     document.getElementById("result").value = code;

@@ -91,6 +91,16 @@ nav.header-nav a:hover{opacity:1;text-decoration:underline;}
 }
 .btn-hero:hover{box-shadow:0 8px 18px -6px rgba(0,0,0,.25);}
 
+.visit-counter{
+  margin:14px 0 0;
+  font-size:.82rem;
+  opacity:.85;
+  font-weight:700;
+}
+.visit-counter #visitCount{
+  font-family:var(--font-display);
+  font-weight:600;
+}
 /* ===========================================================
    Layout général
    =========================================================== */

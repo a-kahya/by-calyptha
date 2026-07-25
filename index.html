@@ -23,6 +23,7 @@
     </nav>
   </div>
   <div class="hero-strip">
+    <p class="visit-counter">✨ <span id="visitCount">···</span> visites sur la boutique</p>
     <h1>Fait main, fait avec amour 🧸</h1>
   </div>
 </header>
@@ -64,6 +65,20 @@
     grid.appendChild(card);
   });
 </script>
-<script data-goatcounter="https://by-calyptha.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-</body>
+<script>
+  // Récupère et affiche le nombre total de visites (GoatCounter)
+  fetch("https://by-calyptha.goatcounter.com/counter/TOTAL.json")
+    .then(r => r.json())
+    .then(data => {
+      document.getElementById("visitCount").textContent = data.count;
+    })
+    .catch(() => {
+      const el = document.querySelector(".visit-counter");
+      if (el) el.style.display = "none";
+    });
+</script>
+
+<!-- GoatCounter : comptage des visites, respectueux de la vie privée -->
+<script data-goatcounter="https://by-calyptha.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </html>

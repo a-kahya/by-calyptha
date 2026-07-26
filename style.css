@@ -308,3 +308,19 @@ footer{
 .category-section{
   margin-bottom:36px;
 }
+
+.lightbox-overlay{
+  position:fixed;inset:0;
+  background:rgba(60,34,51,0.85);
+  display:none;
+  align-items:center;justify-content:center;
+  z-index:1000;
+  padding:20px;
+  cursor:zoom-out;
+}
+.lightbox-overlay.active{display:flex;}
+.lightbox-overlay img{
+  max-width:90vw;max-height:90vh;
+  border-radius:var(--radius-md);
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
+}

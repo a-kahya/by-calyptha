@@ -7,6 +7,60 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  /* Lightbox — autonome, ne dépend pas de style.css */
+  #lightbox{
+    display:none;
+    position:fixed;
+    top:0;left:0;right:0;bottom:0;
+    background:rgba(60,34,51,0.88);
+    z-index:9999;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+  #lightbox.active{ display:flex; }
+  #lightbox .lightbox-inner{
+    position:relative;
+    max-width:92vw;
+    max-height:92vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+  }
+  #lightbox img{
+    max-width:92vw;
+    max-height:78vh;
+    object-fit:contain;
+    border-radius:16px;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+    display:block;
+  }
+  #lightboxClose{
+    position:absolute;
+    top:-16px;right:-16px;
+    width:38px;height:38px;
+    border-radius:50%;
+    border:none;
+    background:#fff;
+    color:#3c2233;
+    font-size:1.1rem;
+    font-weight:800;
+    cursor:pointer;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 16px rgba(0,0,0,.3);
+  }
+  #lightboxBack{
+    color:#fff;
+    font-weight:800;
+    font-size:.9rem;
+    cursor:pointer;
+    background:none;
+    border:none;
+    text-decoration:underline;
+  }
+</style>
 </head>
 <body>
 
@@ -35,8 +89,12 @@
 <footer>By Calyptha — fait main, avec 💕 · Expédition via Mondial Relay</footer>
 
 <!-- Lightbox : affiche l'image en grand au clic -->
-<div id="lightbox" class="lightbox-overlay">
-  <img id="lightboxImg" src="" alt="Création en grand">
+<div id="lightbox">
+  <div class="lightbox-inner">
+    <button id="lightboxClose" aria-label="Fermer">✕</button>
+    <img id="lightboxImg" src="" alt="Création en grand">
+    <button id="lightboxBack">← Retour à la galerie</button>
+  </div>
 </div>
 
 <script src="galerie.js"></script>
@@ -50,20 +108,33 @@
     galerieGrid.innerHTML = `<div class="empty-state"><div class="icon">🧵</div>La galerie est vide pour le moment.</div>`;
   }
 
+  function ouvrirLightbox(src) {
+    lightboxImg.src = src;
+    lightbox.classList.add("active");
+  }
+  function fermerLightbox() {
+    lightbox.classList.remove("active");
+  }
+
   GALERIE.forEach(item => {
     const card = document.createElement("div");
     card.className = "gallery-card";
     card.innerHTML = `<img src="${item.photo}" alt="Création By Calyptha" loading="lazy">`;
-    card.addEventListener("click", () => {
-      lightboxImg.src = item.photo;
-      lightbox.classList.add("active");
-    });
+    card.addEventListener("click", () => ouvrirLightbox(item.photo));
     galerieGrid.appendChild(card);
   });
 
-  // Ferme le lightbox au clic n'importe où sur l'overlay
-  lightbox.addEventListener("click", () => {
-    lightbox.classList.remove("active");
+  document.getElementById("lightboxClose").addEventListener("click", fermerLightbox);
+  document.getElementById("lightboxBack").addEventListener("click", fermerLightbox);
+
+  // Ferme aussi si on clique sur le fond sombre (mais pas sur l'image elle-même)
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) fermerLightbox();
+  });
+
+  // Ferme avec la touche Echap
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") fermerLightbox();
   });
 </script>
 </body>

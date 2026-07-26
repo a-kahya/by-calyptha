@@ -19,6 +19,7 @@
       <a href="index.html">Boutique</a>
       <a href="apropos.html">Mon univers 💕 </a>
       <a href="galerie.html">Galerie</a>
+      <a href="faq.html">FAQ</a>
       <a href="panier.html" class="cart-pill">
         🛍️ Panier <span data-cart-count style="display:none;">0</span>
       </a>
@@ -38,6 +39,7 @@
 
 <script src="produits.js"></script>
 <script src="panier.js"></script>
+<script src="favoris.js"></script>
 <script>
   const container = document.getElementById("grid");
 
@@ -45,7 +47,6 @@
     container.innerHTML = `<div class="empty-state"><div class="icon">🧵</div>La boutique est vide pour le moment, reviens bientôt !</div>`;
   }
 
-  // Catégories dans l'ordre où elles apparaissent dans produits.js
   const categories = [...new Set(PRODUITS.map(p => p.categorie))];
 
   categories.forEach(cat => {
@@ -59,28 +60,49 @@
     const grid = section.querySelector(".grid");
 
     produitsCategorie.forEach(p => {
-      const card = document.createElement("a");
-      card.href = `produit.html?id=${encodeURIComponent(p.id)}`;
+      const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
-        <div class="thumb">
-          ${p.vendu ? `<span class="badge-sold">Vendu</span>` : ""}
-          <img src="${p.photos[0]}" alt="${p.nom}" loading="lazy">
-        </div>
-        <div class="body">
-          <h3>${p.nom}</h3>
-          <div class="price">${formaterPrix(p.prix)}</div>
-        </div>
+        <a href="produit.html?id=${encodeURIComponent(p.id)}" style="display:contents;">
+          <div class="thumb">
+            ${p.vendu ? `<span class="badge-sold">Vendu</span>` : ""}
+            <img src="${p.photos[0]}" alt="${p.nom}" loading="lazy">
+          </div>
+          <div class="body">
+            <h3>${p.nom}</h3>
+            <div class="price">${formaterPrix(p.prix)}</div>
+          </div>
+        </a>
+        <button class="fav-btn ${estFavori(p.id) ? 'active' : ''}" data-fav-id="${p.id}" aria-label="Ajouter aux favoris">
+          <span class="fav-icon">${estFavori(p.id) ? '❤️' : '🤍'}</span>
+        </button>
+        <span class="fav-count"><span data-like-count="${p.id}">···</span> ❤️</span>
       `;
-      if (p.vendu) card.style.opacity = "0.55";
+      if (p.vendu) card.querySelector(".thumb").parentElement.style.opacity = "0.55";
       grid.appendChild(card);
     });
 
     container.appendChild(section);
   });
+
+  document.querySelectorAll(".fav-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const id = btn.getAttribute("data-fav-id");
+      const maintenantFavori = toggleFavori(id);
+      btn.classList.toggle("active", maintenantFavori);
+      btn.querySelector(".fav-icon").textContent = maintenantFavori ? "❤️" : "🤍";
+      if (maintenantFavori) {
+        const compteurEl = btn.closest(".card").querySelector(`[data-like-count="${id}"]`);
+        const actuel = parseInt(compteurEl.textContent) || 0;
+        compteurEl.textContent = actuel + 1;
+      }
+    });
+  });
+
+  afficherCompteursFavoris();
 </script>
 <script>
-  // Récupère et affiche le nombre total de visites (GoatCounter)
   fetch("https://by-calyptha.goatcounter.com/counter/TOTAL.json")
     .then(r => r.json())
     .then(data => {

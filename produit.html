@@ -3,87 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Article — By Calyptha</title>
+<title>By Calyptha — Créations au crochet</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="site-header" style="padding-bottom:22px;">
+<header class="site-header">
   <div class="header-row">
-    <a class="logo" href="index.html"><span class="logo-badge">🎀</span> By Calyptha</a>
+    <a class="logo" href="index.html">
+      <span class="logo-badge">🎀</span> By Calyptha
+    </a>
     <nav class="header-nav">
+      <a href="index.html">Boutique</a>
       <a href="apropos.html">Mon univers 💕 </a>
       <a href="galerie.html">Galerie</a>
-      <a href="panier.html" class="cart-pill">🛍️ Panier <span data-cart-count style="display:none;">0</span></a>
+      <a href="faq.html">FAQ</a>
+      <a href="panier.html" class="cart-pill">
+        🛍️ Panier <span data-cart-count style="display:none;">0</span>
+      </a>
     </nav>
+  </div>
+  <div class="hero-strip">
+    <p class="visit-counter">✨ <span id="visitCount">···</span> visites sur la boutique</p>
+    <h1>Fait main, fait avec amour 🧸</h1>
   </div>
 </header>
 
-<main id="main">
-  <!-- injecté en JS -->
+<main>
+  <div id="grid"></div>
 </main>
 
 <footer>By Calyptha — fait main, avec 💕 · Expédition via Mondial Relay</footer>
 
 <script src="produits.js"></script>
 <script src="panier.js"></script>
+<script src="favoris.js"></script>
 <script>
-  const params = new URLSearchParams(location.search);
-  const id = params.get("id");
-  const p = PRODUITS.find(pr => pr.id === id);
-  const main = document.getElementById("main");
+  const container = document.getElementById("grid");
 
-  if (!p) {
-    main.innerHTML = `<div class="empty-state"><div class="icon">🔍</div>Cet article n'existe pas (ou plus).<br><a class="btn btn-primary" style="margin-top:16px;" href="index.html">Retour à la boutique</a></div>`;
-  } else {
-    document.title = p.nom + " — By Calyptha";
+  if (PRODUITS.length === 0) {
+    container.innerHTML = `<div class="empty-state"><div class="icon">🧵</div>La boutique est vide pour le moment, reviens bientôt !</div>`;
+  }
 
-    main.innerHTML = `
-      <a href="index.html" class="back-link">← Retour à la boutique</a>
-      <div class="product-detail">
-        <div>
-          <div class="gallery-main"><img id="mainImg" src="${p.photos[0]}" alt="${p.nom}"></div>
-          <div class="gallery-thumbs">
-            ${p.photos.map((src, i) => `<img src="${src}" class="${i===0?'active':''}" data-src="${src}">`).join("")}
+  const categories = [...new Set(PRODUITS.map(p => p.categorie))];
+
+  categories.forEach(cat => {
+    const produitsCategorie = PRODUITS
+      .filter(p => p.categorie === cat)
+      .sort((a, b) => (a.vendu === b.vendu) ? 0 : a.vendu ? 1 : -1);
+
+    const section = document.createElement("section");
+    section.className = "category-section";
+    section.innerHTML = `<h2 class="section-title">✨ ${cat}</h2><div class="grid"></div>`;
+    const grid = section.querySelector(".grid");
+
+    produitsCategorie.forEach(p => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <a href="produit.html?id=${encodeURIComponent(p.id)}" style="display:contents;">
+          <div class="thumb">
+            ${p.vendu ? `<span class="badge-sold">Vendu</span>` : ""}
+            <img src="${p.photos[0]}" alt="${p.nom}" loading="lazy">
           </div>
-        </div>
-        <div>
-          <h1 class="pd-title">${p.nom}</h1>
-          <div class="pd-price">${formaterPrix(p.prix)}</div>
-          <div class="pd-meta">
-            <span class="chip">${p.categorie}</span>
-            <span class="chip">${p.vendu ? "Vendu" : "Disponible"}</span>
+          <div class="body">
+            <h3>${p.nom}</h3>
+            <div class="price">${formaterPrix(p.prix)}</div>
           </div>
-          <div class="pd-desc">${p.description}</div>
-          <button id="addBtn" class="btn btn-primary btn-block" ${p.vendu ? "disabled" : ""}>
-            ${p.vendu ? "Article vendu" : "Ajouter au panier 🛍️"}
-          </button>
-          <div class="notice">📦 Envoi via Mondial Relay. Le montant exact des frais de port est calculé automatiquement dans ton panier.</div>
-        </div>
-      </div>
-    `;
-
-    document.querySelectorAll(".gallery-thumbs img").forEach(thumb => {
-      thumb.addEventListener("click", () => {
-        document.getElementById("mainImg").src = thumb.dataset.src;
-        document.querySelectorAll(".gallery-thumbs img").forEach(t => t.classList.remove("active"));
-        thumb.classList.add("active");
-      });
+        </a>
+        <button class="fav-btn ${estFavori(p.id) ? 'active' : ''}" data-fav-id="${p.id}" aria-label="Ajouter aux favoris">
+          <span class="fav-icon">${estFavori(p.id) ? '❤️' : '🤍'}</span>
+        </button>
+        <span class="fav-count"><span data-like-count="${p.id}">···</span> ❤️</span>
+      `;
+      if (p.vendu) card.querySelector(".thumb").parentElement.style.opacity = "0.55";
+      grid.appendChild(card);
     });
 
-    const addBtn = document.getElementById("addBtn");
-    if (!p.vendu) {
-      addBtn.addEventListener("click", () => {
-        ajouterAuPanier(p.id);
-        addBtn.textContent = "Ajouté ✓ — voir le panier";
-        addBtn.classList.add("btn-ghost");
-        addBtn.onclick = () => location.href = "panier.html";
-      });
-    }
-  }
+    container.appendChild(section);
+  });
+
+  document.querySelectorAll(".fav-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const id = btn.getAttribute("data-fav-id");
+      const maintenantFavori = toggleFavori(id);
+      btn.classList.toggle("active", maintenantFavori);
+      btn.querySelector(".fav-icon").textContent = maintenantFavori ? "❤️" : "🤍";
+      if (maintenantFavori) {
+        const compteurEl = btn.closest(".card").querySelector(`[data-like-count="${id}"]`);
+        const actuel = parseInt(compteurEl.textContent) || 0;
+        compteurEl.textContent = actuel + 1;
+      }
+    });
+  });
+
+  afficherCompteursFavoris();
 </script>
-<script data-goatcounter="https://by-calyptha.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+  fetch("https://by-calyptha.goatcounter.com/counter/TOTAL.json")
+    .then(r => r.json())
+    .then(data => {
+      document.getElementById("visitCount").textContent = data.count;
+    })
+    .catch(() => {
+      const el = document.querySelector(".visit-counter");
+      if (el) el.style.display = "none";
+    });
+</script>
+
+<!-- GoatCounter : comptage des visites, respectueux de la vie privée -->
+<script data-goatcounter="https://by-calyptha.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

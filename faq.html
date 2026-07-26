@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — By Calyptha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .faq-item{
+    background:#fff;
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow);
+    margin-bottom:12px;
+    overflow:hidden;
+  }
+  .faq-question{
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    padding:16px 18px;
+    font-family:var(--font-body);
+    font-weight:800;
+    font-size:.95rem;
+    color:var(--plum);
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+  }
+  .faq-question .icon{ transition:transform .2s ease; flex-shrink:0; }
+  .faq-item.open .faq-question .icon{ transform:rotate(45deg); }
+  .faq-answer{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .25s ease;
+    padding:0 18px;
+    color:var(--plum-soft);
+    font-size:.9rem;
+    line-height:1.6;
+  }
+  .faq-item.open .faq-answer{
+    max-height:600px;
+    padding-bottom:16px;
+  }
+  .faq-images{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:12px;
+  }
+  .faq-images img{
+    width:160px;
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    cursor:pointer;
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header" style="padding-bottom:22px;">
+  <div class="header-row">
+    <a class="logo" href="index.html"><span class="logo-badge">🎀</span> By Calyptha</a>
+    <nav class="header-nav">
+      <a href="index.html">Boutique</a>
+      <a href="apropos.html">À propos</a>
+      <a href="galerie.html">Galerie</a>
+      <a href="faq.html">FAQ</a>
+      <a href="panier.html" class="cart-pill">🛍️ Panier <span data-cart-count style="display:none;">0</span></a>
+    </nav>
+  </div>
+</header>
+
+<main style="max-width:720px;">
+  <h2 class="section-title">💬 Questions fréquentes</h2>
+
+  <div id="faqList"></div>
+</main>
+
+<footer>By Calyptha — fait main, avec 💕 · Expédition via Mondial Relay</footer>
+
+<script src="panier.js"></script>
+<script>
+  const FAQ = [
+    {
+      q: "Combien de temps faut-il pour recevoir ma commande ?",
+      r: "Chaque pièce est faite à la main, donc les délais peuvent varier selon les articles déjà prêts ou à confectionner. Compte en général quelques jours pour la préparation, puis le temps d'acheminement Mondial Relay classique."
+    },
+    {
+      q: "Comment se passe la livraison ?",
+      r: "Toutes les commandes sont expédiées via Mondial Relay. Une fois ta commande validée et le paiement reçu, tu recevras un email pour choisir ton point relais, puis un autre dès que le colis y est déposé."
+    },
+    {
+      q: "Comment entretenir mes articles au crochet ?",
+      r: "En général, un lavage à la main à l'eau froide est recommandé pour préserver la forme et les couleurs. Évite le sèche-linge. Certains articles peuvent supporter un lavage en machine à 30° en cycle délicat — vérifie la description de l'article concerné."
+    },
+    {
+      q: "Est-ce que je peux demander une couleur ou un modèle personnalisé ?",
+      r: "N'hésite pas à me contacter avant de commander pour en discuter — selon les modèles et le temps disponible, c'est parfois possible !"
+    },
+    {
+      q: "Que se passe-t-il si l'article que je veux est marqué comme vendu ?",
+      r: "Un article vendu peut parfois être refait plus tard, surtout s'il s'agit d'un modèle populaire. Reviens de temps en temps faire un tour dans la boutique, ou garde un œil sur la galerie pour voir mes dernières créations."
+    },
+    {
+      q: "Comment se passe le paiement ?",
+      r: "Le paiement se fait via PayPal, avec le montant exact (articles + frais de port) calculé automatiquement dans le panier."
+    },
+    {
+      q: "Quels sont les avis en général ?",
+      r: `Positifs à 99,99% ! Voici quelques retours de quand je vendais sur Vinted :
+      <div class="faq-images">
+        <img src="images/avis-vinted-1.jpg" alt="Avis client Vinted">
+        <img src="images/avis-vinted-2.jpg" alt="Avis client Vinted">
+      </div>`
+    }
+  ];
+
+  const faqList = document.getElementById("faqList");
+
+  FAQ.forEach((item, i) => {
+    const div = document.createElement("div");
+    div.className = "faq-item";
+    div.innerHTML = `
+      <button class="faq-question">
+        ${item.q}
+        <span class="icon">+</span>
+      </button>
+      <div class="faq-answer">${item.r}</div>
+    `;
+    div.querySelector(".faq-question").addEventListener("click", () => {
+      div.classList.toggle("open");
+    });
+    faqList.appendChild(div);
+  });
+</script>
+</body>
+</html>

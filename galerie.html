@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
- 
+
 <header class="site-header" style="padding-bottom:22px;">
   <div class="header-row">
     <a class="logo" href="index.html"><span class="logo-badge">🎀</span> By Calyptha</a>
@@ -21,33 +21,49 @@
     </nav>
   </div>
 </header>
- 
+
 <main>
   <h2 class="section-title">🖼️ Galerie de mes créations</h2>
   <p class="gallery-intro">
     Une petite vitrine de tout ce que j'ai pu créer au crochet au fil du temps —
     pas forcément à vendre, juste pour montrer mon travail et mon évolution 🎀
   </p>
- 
+
   <div id="galerieGrid" class="gallery-grid"></div>
 </main>
- 
+
 <footer>By Calyptha — fait main, avec 💕 · Expédition via Mondial Relay</footer>
- 
+
+<!-- Lightbox : affiche l'image en grand au clic -->
+<div id="lightbox" class="lightbox-overlay">
+  <img id="lightboxImg" src="" alt="Création en grand">
+</div>
+
 <script src="galerie.js"></script>
 <script src="panier.js"></script>
 <script>
   const galerieGrid = document.getElementById("galerieGrid");
- 
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+
   if (GALERIE.length === 0) {
     galerieGrid.innerHTML = `<div class="empty-state"><div class="icon">🧵</div>La galerie est vide pour le moment.</div>`;
   }
- 
+
   GALERIE.forEach(item => {
     const card = document.createElement("div");
     card.className = "gallery-card";
     card.innerHTML = `<img src="${item.photo}" alt="Création By Calyptha" loading="lazy">`;
+    card.addEventListener("click", () => {
+      lightboxImg.src = item.photo;
+      lightbox.classList.add("active");
+    });
     galerieGrid.appendChild(card);
+  });
+
+  // Ferme le lightbox au clic n'importe où sur l'overlay
+  lightbox.addEventListener("click", () => {
+    lightbox.classList.remove("active");
   });
 </script>
 </body>

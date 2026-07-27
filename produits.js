@@ -175,6 +175,72 @@ const PRODUITS = [
       "images/sous-verre-etoile-rose2.jpg"
     ]
   }, 
+   {
+    id: "pochette-liseuse-ou-tablette-jaune-711",
+    nom: "Pochette Liseuse ou Tablette Jaune",
+    prix: 14,
+    description: "Une pochette pour liseuse ou tablette jaune et turquoise, avec un bouton en forme d'étoile adorable <3",
+    categorie: "Pochette",
+    vendu: false,
+    photos: [
+      "images/pochette-liseuse-jaune.jpg",
+      "images/pochette-liseuse-jaune2.jpg",
+      "images/pochette-liseuse-jaune3.jpg",
+      "images/pochette-liseuse-jaune4.jpg"
+    ]
+  },
+    {
+    id: "sous-verre-fleur-marine-603",
+    nom: "Sous-Verre Fleur Marine",
+    prix: 3,
+    description: "Petit sous-verre en forme de fleur avec un noeud en déco, de couleur bleu marine ! <3",
+    categorie: "Sous-Verre",
+    vendu: false,
+    photos: [
+      "images/sous-verre-fleur-marine.jpg",
+      "images/sous-verre-fleur-marine2.jpg",
+      "images/sous-verre-fleur-marine3.jpg"
+    ]
+  },
+    {
+    id: "sous-verre-fleur-bleu-270",
+    nom: "Sous-Verre Fleur Bleu",
+    prix: 3,
+    description: "Petit sous-verre en forme de fleur avec un noeud en déco ! <3",
+    categorie: "Sous-Verre",
+    vendu: false,
+    photos: [
+      "images/sous-verre-fleur-bleu.jpg",
+      "images/sous-verre-fleur-bleu2.jpg",
+      "images/sous-verre-fleur-bleu3.jpg"
+    ]
+  },
+    {
+    id: "sous-verre-coquette-rose-et-vert-666",
+    nom: "Sous-Verre Coquette Rose et Vert",
+    prix: 2.5,
+    description: "Un petit sous-verre adorable avec son petit noeud en déco !",
+    categorie: "Sous-Verre",
+    vendu: false,
+    photos: [
+      "images/sous-verre-noeud-vert.jpg",
+      "images/sous-verre-noeud-vert2.jpg"
+    ]
+  },
+  {
+    id: "pochette-liseuse-ou-tablette-turquoise-342",
+    nom: "Pochette Liseuse ou Tablette Turquoise",
+    prix: 14,
+    description: "Petite pochette pour votre liseuse ou tablette de couleur turquoise et rose, ainsi qu'un petit noeud très coquette !",
+    categorie: "Pochette",
+    vendu: false,
+    photos: [
+      "images/pochette-liseuse-turquoise.jpg",
+      "images/pochette-liseuse-turquoise2.jpg",
+      "images/pochette-liseuse-turquoise3.jpg",
+      "images/pochette-liseuse-turquoise4.jpg"
+    ]
+  },
   {
     id: "sous-verre-etoile-brun-et-vert-311",
     nom: "Sous-Verre Etoile Brun et Vert",

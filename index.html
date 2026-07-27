@@ -96,6 +96,7 @@
         const compteurEl = btn.closest(".card").querySelector(`[data-like-count="${id}"]`);
         const actuel = parseInt(compteurEl.textContent) || 0;
         compteurEl.textContent = actuel + 1;
+        compteurEl.dataset.majLocale = "1";
       }
     });
   });

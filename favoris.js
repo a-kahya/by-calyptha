@@ -58,7 +58,14 @@ function afficherCompteursFavoris() {
     const id = el.getAttribute("data-like-count");
     fetch(`https://by-calyptha.goatcounter.com/counter/like/${encodeURIComponent(id)}.json`)
       .then(r => r.json())
-      .then(data => { el.textContent = data.count; })
-      .catch(() => { el.textContent = "0"; });
+      .then(data => {
+        // Si l'utilisateur a déjà liké entre-temps (mise à jour locale immédiate),
+        // on ne l'écrase pas avec la valeur en cache de GoatCounter (qui peut être en retard)
+        if (el.dataset.majLocale === "1") return;
+        el.textContent = data.count;
+      })
+      .catch(() => {
+        if (el.dataset.majLocale !== "1") el.textContent = "0";
+      });
   });
 }

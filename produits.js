@@ -211,8 +211,7 @@ const PRODUITS = [
     vendu: false,
     photos: [
       "images/sous-verre-fleur-bleu.jpg",
-      "images/sous-verre-fleur-bleu2.jpg",
-      "images/sous-verre-fleur-bleu3.jpg"
+      "images/sous-verre-fleur-bleu2.jpg"
     ]
   },
     {

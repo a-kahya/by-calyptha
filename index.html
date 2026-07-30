@@ -78,7 +78,7 @@
         </button>
         <span class="fav-count"><span data-like-count="${p.id}">···</span> ❤️</span>
       `;
-      if (p.vendu) card.querySelector(".thumb").parentElement.style.opacity = "0.55";
+      if (p.vendu) card.querySelector(".thumb").classList.add("vendu");
       grid.appendChild(card);
     });
 

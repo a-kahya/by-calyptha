@@ -145,13 +145,20 @@ main{max-width:1200px;margin:0 auto;padding:26px var(--page-pad) 70px;}
   margin-top:auto;
 }
 .badge-sold{
-  position:absolute;top:10px;left:10px;
+  position:absolute;
+  top:16px;left:-38px;
   background:var(--plum);color:#fff;
-  font-size:.68rem;font-weight:800;letter-spacing:.03em;
-  padding:4px 9px;border-radius:999px;
+  font-size:.7rem;font-weight:900;letter-spacing:.05em;
+  padding:6px 44px;
+  transform:rotate(-45deg);
   text-transform:uppercase;
+  box-shadow:0 2px 8px rgba(0,0,0,.3);
+  z-index:3;
 }
 .badge-sold.reoffer{background:var(--gold);}
+.thumb.vendu img{
+  filter:grayscale(85%);
+}
 
 /* ===========================================================
    Boutons

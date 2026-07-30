@@ -113,7 +113,7 @@ const PRODUITS = [
     prix: 4,
     description: "Petit porte-cartes tout mignon qui se referme avec un bouton en forme de pomme <3",
     categorie: "Porte-Cartes",
-    vendu: false,
+    vendu: true,
     photos: [
       "images/porte-monnaie-bleu.jpg",
       "images/porte-monnaie-bleu2.jpg"
@@ -246,7 +246,7 @@ const PRODUITS = [
     prix: 4,
     description: "Petit sous-verre en forme d'étoile marron avec du vert autour.",
     categorie: "Sous-Verre",
-    vendu: false,
+    vendu: true,
     photos: [
       "images/sous-verre-etoile.jpg",
       "images/sous-verre-etoile2.jpg"

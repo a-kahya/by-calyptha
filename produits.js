@@ -87,7 +87,7 @@ const PRODUITS = [
     prix: 7,
     description: "Pochette pour ranger vos livres de poche ou vos mangas, avec un petit noeud tout mignon pour le refermer <3\nThème coquette!",
     categorie: "Pochette",
-    vendu: false,
+    vendu: true,
     photos: [
       "images/pochette-livres-rose-beige.jpg",
       "images/pochette-livres-rose-beige2.jpg",
@@ -125,7 +125,7 @@ const PRODUITS = [
     prix: 2,
     description: "Marque-page en forme d'étoile. Adorable format qui rajoute un peu de douceur à vos lectures <3",
     categorie: "Marque-page",
-    vendu: false,
+    vendu: true,
     photos: [
       "images/marque-page-etoile-vert.jpg"
     ]
@@ -136,7 +136,7 @@ const PRODUITS = [
     prix: 2,
     description: "Marque-page en forme d'étoile. Adorable format qui rajoute un peu de douceur à vos lectures <3",
     categorie: "Marque-page",
-    vendu: false,
+    vendu: true,
     photos: [
       "images/marque-page-etoile-jaune.jpg"
     ]

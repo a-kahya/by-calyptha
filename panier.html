@@ -32,6 +32,8 @@
       <div id="summaryLines"></div>
       <label for="email">Ton adresse email *</label>
       <input type="email" id="email" placeholder="toi@exemple.com" required>
+      <label for="pays">Pays de livraison *</label>
+      <input type="text" id="pays" placeholder="Belgique, France..." required>
       <div class="notice">
         📦 En validant, tu seras redirigé·e vers PayPal pour régler le montant exact. Une fois ta commande passée, tu recevras un email de Mondial Relay pour indiquer ton point de livraison — <strong>on ne peut pas expédier ton colis sans ça</strong>, pense donc à vérifier tes spams et à y répondre rapidement.
       </div>
@@ -51,46 +53,6 @@
      ========================================================= */
   const PAYPAL_ME_ID = "aysekahya";  // ton identifiant PayPal.me (sans "paypal.me/" devant)
 
-  // EmailJS : envoie automatiquement 2 emails à chaque commande,
-  // sans que l'acheteur ne voie ni ne modifie le contenu :
-  //   1. à toi : le récap de la commande (articles, frais de port, total, email acheteur)
-  //   2. à l'acheteur : une confirmation lui rappelant qu'il recevra
-  //      bientôt un email de Mondial Relay où il devra renseigner
-  //      ses infos de livraison.
-  //
-  // Configuration (une seule fois, gratuit) :
-  //   1. Crée un compte sur https://www.emailjs.com
-  //   2. "Email Services" → connecte ta boîte mail (ex: Outlook/Live)
-  //   3. Crée DEUX templates dans "Email Templates" :
-  //
-  //      Template A — pour TOI (reçu à ton adresse) :
-  //        "To Email" = ton adresse email en dur
-  //        Objet suggéré : "Nouvelle demande de commande (en attente de paiement)"
-  //        Variables utilisées dans le corps : {{email_client}} {{articles}} {{frais_port}} {{total}}
-  //        Corps suggéré : "Nouvelle demande de commande, en attente de
-  //        paiement PayPal. Vérifie que le paiement est bien arrivé
-  //        avant de traiter la commande."
-  //
-  //      Template B — pour L'ACHETEUR :
-  //        "To Email" = {{email_client}}   (⚠️ mets bien la variable, pas une adresse fixe)
-  //        Objet suggéré : "Ta demande de commande — By Calyptha"
-  //        Variables utilisées dans le corps : {{articles}} {{frais_port}} {{total}}
-  //        Corps suggéré :
-  //        "Merci pour ta demande de commande !
-  //
-  //        Ceci n'est PAS encore une commande confirmée : elle ne sera
-  //        validée qu'à réception de ton paiement sur PayPal.
-  //
-  //        Récap : {{articles}}
-  //        Frais de port : {{frais_port}}
-  //        Total à régler sur PayPal : {{total}}
-  //
-  //        Une fois le paiement reçu, tu recevras un email de Mondial
-  //        Relay te demandant de choisir ton point relais — pense à
-  //        vérifier tes spams et à y répondre rapidement pour qu'on
-  //        puisse expédier ta commande."
-  //
-  //   4. Remplace les 4 valeurs ci-dessous (Account > General pour la Public Key)
   const EMAILJS_PUBLIC_KEY = "sPxGPSXqLgIhK07Sf";
   const EMAILJS_SERVICE_ID = "service_z6zx5xf";
   const EMAILJS_TEMPLATE_ID_VENDEUSE = "template_8h98kck";
@@ -149,13 +111,22 @@
 
   document.getElementById("orderBtn").addEventListener("click", async () => {
     const emailInput = document.getElementById("email");
+    const paysInput = document.getElementById("pays");
     const status = document.getElementById("orderStatus");
     const email = emailInput.value.trim();
+    const pays = paysInput.value.trim();
 
     if (!email || !email.includes("@")) {
       status.style.color = "#c0392b";
       status.textContent = "Merci d'indiquer une adresse email valide.";
       emailInput.focus();
+      return;
+    }
+
+    if (!pays) {
+      status.style.color = "#c0392b";
+      status.textContent = "Merci d'indiquer ton pays de livraison.";
+      paysInput.focus();
       return;
     }
 
@@ -176,6 +147,7 @@
       }
       const donnees = {
         email_client: email,
+        pays: pays,
         articles: listeArticles,
         frais_port: formaterPrix(port),
         total: formaterPrix(total)

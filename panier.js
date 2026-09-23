@@ -1,6 +1,4 @@
-/* ===========================================================
-   Logique du panier — stocké dans le navigateur (localStorage)
-   =========================================================== */
+/* Logique du panier : stocké dans le navigateur (localStorage) */
 
 const CLE_PANIER = "crochet_panier_v1";
 

@@ -1,7 +1,5 @@
-/* ===========================================================
-   Système de favoris — stocké dans le navigateur (localStorage)
-   + comptage global du nombre de likes via GoatCounter
-   =========================================================== */
+/* Système de favoris — stocké dans le navigateur (localStorage)
+   + comptage global du nombre de likes via GoatCounter */
 
 const CLE_FAVORIS = "crochet_favoris_v1";
 const CLE_FAVORIS_COMPTES = "crochet_favoris_comptes_v1"; // évite de recompter 2x la même personne

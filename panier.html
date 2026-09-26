@@ -87,10 +87,16 @@
       </div>
     `).join("");
 
+    //0 la valeur de départ, l'accumulateur initial
+    //(s, p) => s + p.prix c'est la fonction appelée pour chaque article, 
+    // avec deux paramètres de nature différente : s est l'accumulateur (le total calculé jusqu'ici), p est l'article courant
+    //À chaque tour, la fonction renvoie le nouveau total, qui devient s au tour suivant.
     const sousTotal = articles.reduce((s, p) => s + p.prix, 0);
+    //calculerFraisPort vient de panier.js
     const port = calculerFraisPort(articles.length);
     const total = sousTotal + port;
 
+    //ici article${articles.length>1?"s":""}  ajoute un "s" au mot "article" seulement s'il y en a plus d'un, pour éviter d'afficher "1 articles"
     summaryEl.innerHTML = `
       <div class="summary-row"><span>Sous-total (${articles.length} article${articles.length>1?"s":""})</span><span>${formaterPrix(sousTotal)}</span></div>
       <div class="summary-row"><span>Frais de port (Mondial Relay)</span><span>${formaterPrix(port)}</span></div>
@@ -99,6 +105,8 @@
 
     document.querySelectorAll(".rm").forEach(btn => {
       btn.addEventListener("click", () => {
+        //location.reload recharge entièrement la page, pour mettre à jour l'affichage 
+        // plutôt que de recalculer et réinjecter juste la partie concernée, on relance toute la page depuis le début, ce qui refait tourner tout le script et donc réaffiche un panier à jour
         retirerDuPanier(btn.dataset.id);
         location.reload();
       });

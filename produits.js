@@ -31,6 +31,34 @@ const PRODUITS = [
     ]
   },
   {
+    id: "pochette-liseuse-ou-tablette-rose-889",
+    nom: "Pochette Liseuse ou Tablette Rose",
+    prix: 16,
+    description: "Petite pochette pour votre liseuse (Kindle, Kobo) ou votre tablette. Elle peut également servir pour totalement autre chose si l'envie vous prend ! <3",
+    categorie: "Pochette",
+    vendu: false,
+    photos: [
+      "images/pochette-liseuse-rose1.jpg",
+      "images/pochette-liseuse-rose2.jpg",
+      "images/pochette-liseuse-rose3.jpg",
+      "images/pochette-liseuse-rose4.jpg"
+    ]
+  },
+  {
+    id: "pochette-liseuse-ou-tablette-marron-540",
+    nom: "Pochette Liseuse ou Tablette Marron",
+    prix: 15,
+    description: "Une adorable pochette marron et rose pour votre liseuse ou votre tablette.",
+    categorie: "Pochette",
+    vendu: false,
+    photos: [
+      "images/pochette-liseuse-marron1.jpg",
+      "images/pochette-liseuse-marron2.jpg",
+      "images/pochette-liseuse-marron3.jpg",
+      "images/pochette-liseuse-marron4.jpg"
+    ]
+  },
+  {
     id: "pochette-livres-de-poche-ou-manga-rose-vert-568",
     nom: "Pochette Livres de Poche ou Manga Rose/Vert",
     prix: 7,

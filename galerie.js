@@ -1,13 +1,10 @@
-/*
-  ===========================================================
-  GALERIE — VITRINE DE TES CRÉATIONS (pas à vendre, juste montrer)
-  ===========================================================
+/* GALERIE — VITRINE DE TES CRÉATIONS (pas à vendre, juste montrer)
+
   Pour AJOUTER une photo : utilise la page ajout-galerie.html,
   elle te génère automatiquement le bloc à coller ici, dans le
   tableau GALERIE (juste après "const GALERIE = [").
  
-  Pas de nom, pas de prix, pas de description ici — juste la photo.
-  ===========================================================
+  Pas de nom, pas de prix, pas de description ici, juste la photo.
 */
  
 const GALERIE = [

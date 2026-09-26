@@ -10,6 +10,7 @@
 </head>
 <body>
 
+<!--  header divisé en 2 div : une div pour les liens, l'autre pour afficher les visites -->
 <header class="site-header">
   <div class="header-row">
     <a class="logo" href="index.html">
@@ -25,70 +26,92 @@
       </a>
     </nav>
   </div>
+  <!-- juste en dessous de la première div -->
   <div class="hero-strip">
     <p class="visit-counter">✨ <span id="visitCount">···</span> visites sur la boutique</p>
     <h1>Fait main, fait avec amour 🧸</h1>
   </div>
 </header>
 
+<!-- le main est vide, peuplé en JS à partir du fichier produits.js -->
 <main>
   <div id="grid"></div>
 </main>
 
 <footer>By Calyptha — fait main, avec 💕 · Expédition via Mondial Relay</footer>
 
+<!-- fin du HTML, la suite c'est les scripts pour le compteur, l'affichage des produits etc. -->
+
 <script src="produits.js"></script>
 <script src="panier.js"></script>
 <script src="favoris.js"></script>
+<!-- premier script: le code de cette page, utilise le code dans produits.js donc produits.js 
+ doit être chargé AVANT le script de la page, sinon ça plante car variables n'existent pas encore-->
 <script>
   const container = document.getElementById("grid");
 
+  //petit msg si la liste des produits est vide
   if (PRODUITS.length === 0) {
     container.innerHTML = `<div class="empty-state"><div class="icon">🧵</div>La boutique est vide pour le moment, reviens bientôt !</div>`;
   }
-
+  //on récup les catégories des produits existants, sans toucher le HTML
   const categories = [...new Set(PRODUITS.map(p => p.categorie))];
 
+  //on affiche la liste des produits par catégorie et les produits vendus vont en fin de liste
   categories.forEach(cat => {
     const produitsCategorie = PRODUITS
       .filter(p => p.categorie === cat)
       .sort((a, b) => (a.vendu === b.vendu) ? 0 : a.vendu ? 1 : -1);
 
+      //
     const section = document.createElement("section");
     section.className = "category-section";
     section.innerHTML = `<h2 class="section-title">✨ ${cat}</h2><div class="grid"></div>`;
     const grid = section.querySelector(".grid");
 
+    //on crée une carte produit pour chaque produit
+    //le thumb c'est pour l'image, si article vendu, on écrit vendu, sinon rien
+    //photos[0] car dans produits.js,  photos = [] est un tableau avec les noms des photos
+    //on récup le premier qu'on affiche comme thumbnaiol
     produitsCategorie.forEach(p => {
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
         <a href="produit.html?id=${encodeURIComponent(p.id)}" style="display:contents;">
+          
           <div class="thumb">
             ${p.vendu ? `<span class="badge-sold">Vendu</span>` : ""}
             <img src="${p.photos[0]}" alt="${p.nom}" loading="lazy">
           </div>
+
           <div class="body">
             <h3>${p.nom}</h3>
             <div class="price">${formaterPrix(p.prix)}</div>
           </div>
         </a>
+
         <button class="fav-btn ${estFavori(p.id) ? 'active' : ''}" data-fav-id="${p.id}" aria-label="Ajouter aux favoris">
           <span class="fav-icon">${estFavori(p.id) ? '❤️' : '🤍'}</span>
         </button>
         <span class="fav-count"><span data-like-count="${p.id}">···</span> ❤️</span>
       `;
+      //si c'est vendu, on ajoute la classe vendu au thumb comme ça on peut lui mettre le style gris
       if (p.vendu) card.querySelector(".thumb").classList.add("vendu");
+      //qd la carte est construite, on l'ajoute à la sous grille (la classe grid actuelle)
       grid.appendChild(card);
     });
-
+    //pareil, on ajoute la section qu'on vient de finir pour cette catégorie au container aka le gros bloc qui contient toutes les sections
     container.appendChild(section);
   });
+  //--> c'est ici que le forEach pour chaque catégorie s'arrête
 
+  //la gestion des favoris
   document.querySelectorAll(".fav-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {
+      //pour empêcher le comportement par défaut du click, sinon qd on clique sur ajouter au fav, on ouvre aussi la page du produit
       e.preventDefault();
       const id = btn.getAttribute("data-fav-id");
+      //toggleFavori vient de favoris.js, ça ajoute ou retire l'id du localStorage, renvoie true/false selon le nouvel état
       const maintenantFavori = toggleFavori(id);
       btn.classList.toggle("active", maintenantFavori);
       btn.querySelector(".fav-icon").textContent = maintenantFavori ? "❤️" : "🤍";
@@ -100,9 +123,12 @@
       }
     });
   });
-
+  //afficherCompteursFavoris va chercher (via fetch dans favoris.js) 
+  // le nombre de likes de chaque produit sur GoatCounter et le colle dans les <span data-like-count>
   afficherCompteursFavoris();
 </script>
+
+<!-- le deuxième script : pour récupérer le compteur -->
 <script>
   fetch("https://by-calyptha.goatcounter.com/counter/TOTAL.json")
     .then(r => r.json())
@@ -115,7 +141,7 @@
     });
 </script>
 
-<!-- GoatCounter : comptage des visites, respectueux de la vie privée -->
+<!-- GoatCounter compter les visites -->
 <script data-goatcounter="https://by-calyptha.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
 </body>

@@ -31,8 +31,15 @@
     align-items:center;
     gap:10px;
   }
-  .faq-question .icon{ transition:transform .2s ease; flex-shrink:0; }
-  .faq-item.open .faq-question .icon{ transform:rotate(45deg); }
+  /*avec les 2 règles qui suivent : l'icone + dans la question est 
+  transformée en un x pour fermer quand la question est ouverte */
+  .faq-question .icon { 
+    transition:transform .2s ease; flex-shrink:0; 
+  }
+  .faq-item.open .faq-question .icon { 
+    transform:rotate(45deg); 
+  }
+
   .faq-answer{
     max-height:0;
     overflow:hidden;
@@ -59,7 +66,10 @@
     cursor:pointer;
   }
 
-  /* Lightbox — autonome, comme sur la page galerie */
+  /* Lightbox : on a display none, et position fixed avec les 4 côtés à 0 font que
+  cet élément recouvre toute la page
+  display:none le cache par défaut mais la classe active (dans la 2eme règle fait basculer 
+  display à flex pour afficher son contenu*/
   #lightbox{
     display:none;
     position:fixed;
@@ -70,7 +80,10 @@
     justify-content:center;
     padding:24px;
   }
-  #lightbox.active{ display:flex; }
+  #lightbox.active{ 
+    display:flex; 
+  }
+
   #lightbox .lightbox-inner{
     position:relative;
     max-width:92vw;
@@ -147,6 +160,8 @@
 
 <script src="panier.js"></script>
 <script>
+  //un tableau d'objet avec à chaque fois une question et une réponse
+  //précision pour la dernière question (voir là-bas)
   const FAQ = [
     {
       q: "Combien de temps faut-il pour recevoir ma commande ?",
@@ -173,6 +188,8 @@
       r: "Le paiement se fait via PayPal, avec le montant exact (articles + frais de port) calculé automatiquement dans le panier."
     },
     {
+      //ici la dernière question injecte du html avec div etc. c'est ok car on a innerHTML pour l'injecter
+      // vs textContent (qui l'afficherait tel quel avec les balises visibles)
       q: "Quels sont les avis en général ?",
       r: `Positifs à 99,99% ! Voici quelques retours de quand je vendais sur Vinted :
       <div class="faq-images">
@@ -186,8 +203,14 @@
 
   const faqList = document.getElementById("faqList");
 
+  //le forEach reçoit 2 param : l'item aka l'élément courant et i son indice 
+  // i n'est jamais utilisé ici par contre
   FAQ.forEach((item, i) => {
     const div = document.createElement("div");
+    //différence entre className et div.classList.add("faq-item") 
+    // className remplace toute la liste de classes d'un coup (overwrite par dessus) 
+    // classList.add() en ajoute une sans toucher aux autres 
+    // ici il n'y a qu'une seule classe à mettre, donc className suffit
     div.className = "faq-item";
     div.innerHTML = `
       <button class="faq-question">
@@ -196,6 +219,8 @@
       </button>
       <div class="faq-answer">${item.r}</div>
     `;
+    //on écoute le clic, et on bascule (toggle) la classe open sur la carte entière (div, pas juste le bouton)
+    //c'est ce qui active la règle CSS .faq-item.open .faq-answer (plus haut) --> provoque l'ouverture ou la fermeture
     div.querySelector(".faq-question").addEventListener("click", () => {
       div.classList.toggle("open");
     });
@@ -207,6 +232,10 @@
   const lightboxImg = document.getElementById("lightboxImg");
 
   function ouvrirLightbox(src) {
+    //on a qu'une seule balise oimg dans la lightbox <img id="lightboxImg" src="">
+    // mais on sait pas à l'avance quelle image afficher en grand, donc src est vide
+    //ici on change la source de l'image par la src en paramètre, c'est-à-dire
+    // le param src reçoit au moment de l'appel l'adresse de l'image sur laquelle on a cliqué
     lightboxImg.src = src;
     lightbox.classList.add("active");
   }
@@ -216,6 +245,13 @@
 
   document.querySelectorAll(".faq-images img").forEach(img => {
     img.addEventListener("click", (e) => {
+      //stopPropagation = un clic sur une image ne déclenche pas qu'un seul événement isolé
+      // il remonte ensuite vers les éléments parents (l'image est dans .faq-answer, qui est dans .faq-item, qui contient le <button class="faq-question">...)
+      // Sans stopPropagation(), le clic sur l'image pourrait aussi être interprété comme un clic quelque part dans la carte
+      // --> risque de perturber d'autres écouteurs posés plus haut dans la hiérarchie
+      // Ici, ça empêche le clic sur l'image de "fuiter" vers autre chose(réflexe similaire à e.preventDefault)
+      // mais donc résout un problème différent car preventDefault() annule le comportement par défaut d'un élément (comme suivre un lien) 
+      // stopPropagation() empêche l'événement de se propager aux éléments parents
       e.stopPropagation();
       ouvrirLightbox(img.src);
     });
@@ -223,9 +259,13 @@
 
   document.getElementById("lightboxClose").addEventListener("click", fermerLightbox);
   document.getElementById("lightboxBack").addEventListener("click", fermerLightbox);
+  //ici c'est pour ajouter une 3ème manière de fermer la photo
+  //on met l'écouteur sur toute la lightbox, donc le fond sombre qui recouvre tout l'écran (à l'intérieur duquel on a le lightbox-inner qui lui contient l'img etc)
+  //si on clique sur un endroit sombre, on veut fermer l'img
   lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) fermerLightbox();
   });
+  //et 4ème manière de fermer, appuyer sur le key escape du clavier donc on écoute keydown cette fois
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") fermerLightbox();
   });

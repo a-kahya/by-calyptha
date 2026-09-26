@@ -30,16 +30,31 @@
 
 <script src="produits.js"></script>
 <script src="panier.js"></script>
+
 <script>
+  //rappel du lien passé dans index.html : 
+  // <a href="produit.html?id=${encodeURIComponent(p.id)}" style="display:contents;">
+  //un click sur une carte produit mène vers un url comme : 
+  // produit.html?id=pochette-livres-de-poche-ou-manga-rose-blanc-936
+  // --> location est un objet fourni par le navigateur, qui contient des infos sur l'URL actuelle
+  // location.search est précisément la partie après le ?
+  // donc ici "?id=pochette-livres-de-poche-ou-manga-rose-blanc-936".
+  //URLSearchParams = un outil intégré au navigateur qui parse cette chaîne pour nous, donc il la découpe en paires clé/valeur exploitables, plutôt que de nous découper le texte à la main avec des .split() 
+  // Une fois cet objet créé, .get("id") va donner directement la valeur associée à id (sans se soucier du ?, du =, ou autres params s'il y en avait (ex ?id=xxx&couleur=rose)
+  //Résultat : id contient la chaîne "pochette-livres-de-poche-ou-manga-rose-blanc-936"
   const params = new URLSearchParams(location.search);
   const id = params.get("id");
+  //Contrairement à .filter() (qui renvoie *tous* les éléments qui correspondent sous forme de tableau, 
+  // .find() renvoie le premier élément qui correspond, tout seul, pas dans un tableau
+  // Et s'il n'y a aucune correspondance find() renvoie undefined
   const p = PRODUITS.find(pr => pr.id === id);
   const main = document.getElementById("main");
 
   if (!p) {
     main.innerHTML = `<div class="empty-state"><div class="icon">🔍</div>Cet article n'existe pas (ou plus).<br><a class="btn btn-primary" style="margin-top:16px;" href="index.html">Retour à la boutique</a></div>`;
   } else {
-    document.title = p.nom + " — By Calyptha";
+    //on change de manière dynamique le titre de l'onglet 
+    document.title = p.nom + " By Calyptha";
 
     main.innerHTML = `
       <a href="index.html" class="back-link">← Retour à la boutique</a>
@@ -47,6 +62,7 @@
         <div>
           <div class="gallery-main"><img id="mainImg" src="${p.photos[0]}" alt="${p.nom}"></div>
           <div class="gallery-thumbs">
+        
             ${p.photos.map((src, i) => `<img src="${src}" class="${i===0?'active':''}" data-src="${src}">`).join("")}
           </div>
         </div>
@@ -55,6 +71,7 @@
           <div class="pd-price">${formaterPrix(p.prix)}</div>
           <div class="pd-meta">
             <span class="chip">${p.categorie}</span>
+
             <span class="chip">${p.vendu ? "Vendu" : "Disponible"}</span>
           </div>
           <div class="pd-desc">${p.description}</div>
@@ -65,21 +82,30 @@
         </div>
       </div>
     `;
-
+    
+    //ici ça permet de changer l'image principale quand on clique sur une qui est miniature
     document.querySelectorAll(".gallery-thumbs img").forEach(thumb => {
       thumb.addEventListener("click", () => {
         document.getElementById("mainImg").src = thumb.dataset.src;
+        //pour chaque thumb, aka t, on enlève la classe active, puis on la rajoute uniquement sur celui où on a cliqué
         document.querySelectorAll(".gallery-thumbs img").forEach(t => t.classList.remove("active"));
         thumb.classList.add("active");
       });
     });
 
+    //on récup le bouton d'ajout au panier, si l'article est dispo on va écouter le click
+    //btn-ghost va juste changer le css (couleur plus sombre)
     const addBtn = document.getElementById("addBtn");
     if (!p.vendu) {
       addBtn.addEventListener("click", () => {
         ajouterAuPanier(p.id);
         addBtn.textContent = "Ajouté ✓ — voir le panier";
         addBtn.classList.add("btn-ghost");
+        //ici onclick c'est pour remplacer le cpt du bouton pour un futur clic 
+        // onclick est une autre façon de créer un "gestionnaire de clic" (comme addEventListener, mais plus vieille, encore valide)
+        // l'assigner ainsi via = écrase ce qui était défini avant avec addEventListener pour les clics suivants via cette propriété 
+        // en gros le premier clic ajoute au panier, et à partir du second clic sur ce même bouton, il redirige directement vers panier.html
+        //location.href = "..." = instruction qui change la page affichée, l'équivalent JS de cliquer sur un lien classique
         addBtn.onclick = () => location.href = "panier.html";
       });
     }

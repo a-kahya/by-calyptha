@@ -58,6 +58,34 @@ const PRODUITS = [
       "images/pochette-liseuse-marron4.jpg"
     ]
   },
+   {
+    id: "pochette-liseuse-ou-tablette-brune-335",
+    nom: "Pochette Liseuse ou Tablette Brune",
+    prix: 16,
+    description: "Une petite pochette marron avec des noeuds roses pâles adorables <3",
+    categorie: "Pochette",
+    vendu: false,
+    photos: [
+      "images/pochette-liseuse-brun1.jpg",
+      "images/pochette-liseuse-brun2.jpg",
+      "images/pochette-liseuse-brun3.jpg",
+      "images/pochette-liseuse-brun4.jpg"
+    ]
+  },
+  {
+    id: "pochette-liseuse-ou-tablette-carreaux-754",
+    nom: "Pochette Liseuse ou Tablette Carreaux",
+    prix: 16,
+    description: "Pochette pour votre liseuse (Kobo, Kindle) avec un petit bouton à carreaux en forme de pomme !",
+    categorie: "Pochette",
+    vendu: false,
+    photos: [
+      "images/pochette-liseuse-carreaux1.jpg",
+      "images/pochette-liseuse-carreaux2.jpg",
+      "images/pochette-liseuse-carreaux3.jpg",
+      "images/pochette-liseuse-carreaux4.jpg"
+    ]
+  },
   {
     id: "pochette-livres-de-poche-ou-manga-rose-vert-568",
     nom: "Pochette Livres de Poche ou Manga Rose/Vert",

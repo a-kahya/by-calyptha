@@ -112,9 +112,12 @@
       });
     });
   }
-
+  //render en fait reprend la logique de l'affichage du panier 
+  // donc construire les lignes d'articles, calculer et afficher le sous-total/frais de port/total
+  //C'est bien de la logique, mais une logique de présentation, pas toute la logique du panier au sens large.
   render();
 
+  //validation du formulaire
   document.getElementById("orderBtn").addEventListener("click", async () => {
     const emailInput = document.getElementById("email");
     const paysInput = document.getElementById("pays");
@@ -133,24 +136,32 @@
       status.style.color = "#c0392b";
       status.textContent = "Merci d'indiquer ton pays de livraison.";
       paysInput.focus();
+      //return car sinon le reste du code va qd mm s'exécuter malgré les msg de correction d'email, pays
       return;
     }
 
     const sousTotal = articles.reduce((s, p) => s + p.prix, 0);
     const port = calculerFraisPort(articles.length);
     const total = sousTotal + port;
+    //listeArticles = le texte qui affiche l'article et son prix, puis retour à la ligne
     const listeArticles = articles.map(p => `- ${p.nom} (${formaterPrix(p.prix)})`).join("\n");
 
+    //pour préparer visuellement le bouton "Valider et payer" pendant l'envoie
+    //on le recup et on le désactive pour éviter un second clic et second envoie
     const btn = document.getElementById("orderBtn");
     btn.disabled = true;
     btn.textContent = "Envoi en cours...";
 
+    //on construit et encode le lien paypal avec encodeURIComponent
+    //toFixed(2) =  montant total, forcé à 2 décimales
     const lienPaypal = `https://paypal.me/${encodeURIComponent(PAYPAL_ME_ID)}/${total.toFixed(2)}EUR`;
 
     try {
+      //si soit EmailJS ne s'est pas chargé, soit la clé n'a jamais été configurée, on entre dans le if
       if (!window.emailjs || EMAILJS_PUBLIC_KEY === "TA_PUBLIC_KEY") {
         throw new Error("EmailJS non configuré");
       }
+      //construit les données pour l'émail --> même noms pour les templates sur EmailJS
       const donnees = {
         email_client: email,
         pays: pays,
@@ -159,6 +170,7 @@
         total: formaterPrix(total)
       };
       await Promise.all([
+        //on envoie les 2 emails en parallèle
         emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID_VENDEUSE, donnees),
         emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID_ACHETEUR, donnees)
       ]);

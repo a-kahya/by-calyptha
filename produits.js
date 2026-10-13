@@ -310,13 +310,25 @@ const PRODUITS = [
       "images/pochette-liseuse-turquoise4.jpg"
     ]
   },
+    {
+    id: "pochette-livre-rose-pastel-537",
+    nom: "Pochette Livre Rose Pastel",
+    prix: 7.5,
+    description: "Une petite pochette pour livres de poche, peut en accueillir jusque 2.",
+    categorie: "Pochette Livre",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-rose-pastel1.jpeg",
+      "images/pochette-livres-rose-pastel2.jpeg"
+    ]
+  },
   {
     id: "sous-verre-etoile-brun-et-vert-311",
     nom: "Sous-Verre Etoile Brun et Vert",
     prix: 4,
     description: "Petit sous-verre en forme d'étoile marron avec du vert autour.",
     categorie: "Sous-Verre",
-    vendu: true,
+    vendu: false,
     photos: [
       "images/sous-verre-etoile.jpg",
       "images/sous-verre-etoile2.jpg"

@@ -405,3 +405,43 @@ footer{
   border-radius:999px;
   z-index:2;
 }
+
+/* Bouton d'achat collé en bas sur mobile (fiche produit) */
+@media (max-width:799px){
+  .sticky-cta{
+    position:fixed;
+    left:0; right:0; bottom:0;
+    padding:12px 20px calc(12px + env(safe-area-inset-bottom));
+    background:#fff;
+    box-shadow:0 -6px 20px rgba(60,34,51,.12);
+    z-index:50;
+  }
+  body.page-produit{ padding-bottom:84px; }
+}
+
+/* Raccourcis de catégories */
+html{ scroll-behavior:smooth; }
+.category-section{ scroll-margin-top:64px; }
+.category-nav{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:var(--cream);
+  margin:0 calc(-1 * var(--page-pad)) 14px;
+  padding:10px var(--page-pad);
+  scrollbar-width:none;
+}
+.category-nav::-webkit-scrollbar{ display:none; }
+.category-link{
+  flex-shrink:0;
+  background:var(--rose-pale);
+  color:var(--rose-deep);
+  font-weight:800;
+  font-size:.85rem;
+  padding:8px 16px;
+  border-radius:999px;
+}
+.category-link:active{ background:var(--rose-deep); color:#fff; }

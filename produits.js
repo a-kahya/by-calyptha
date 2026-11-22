@@ -18,7 +18,7 @@
 */
 
 const PRODUITS = [
-  {
+  /*{
     id: "pochette-livres-de-poche-ou-manga-rose-blanc-936",
     nom: "Pochette Livres de Poche ou Manga Rose/Blanc",
     prix: 7,
@@ -29,7 +29,7 @@ const PRODUITS = [
       "images/pochette-livres-rose-blanc.jpg",
       "images/pochette-livres-rose-blanc2.jpg"
     ]
-  },
+  },*/
   {
     id: "pochette-liseuse-ou-tablette-rose-889",
     nom: "Pochette Liseuse ou Tablette Rose",
@@ -100,7 +100,7 @@ const PRODUITS = [
       "images/pochette-liseuse-carreaux4.jpg"
     ]
   },
-  {
+  /*{
     id: "pochette-livres-de-poche-ou-manga-rose-vert-568",
     nom: "Pochette Livres de Poche ou Manga Rose/Vert",
     prix: 7,
@@ -112,8 +112,8 @@ const PRODUITS = [
       "images/pochette-livres-rose-vert2.jpg",
       "images/pochette-livres-rose-vert.jpg"
     ]
-  },
-  {
+  },*/
+  /*{
     id: "pochette-livres-de-poche-ou-manga-vert-blanc-303",
     nom: "Pochette Livres de Poche ou Manga Vert/Blanc",
     prix: 7,
@@ -125,11 +125,11 @@ const PRODUITS = [
       "images/pochette-livres-vert-blanc2.jpg",
       "images/pochette-livres-vert-blanc3.jpg"
     ]
-  },
+  },*/
   {
     id: "pochette-livres-de-poche-ou-manga-jaune-marron-259",
     nom: "Pochette Livres de Poche ou Manga Jaune/Marron",
-    prix: 7,
+    prix: 4.5,
     description: "Pochette pour ranger vos livres de poche ou vos mangas, avec un petit noeud tout coquette pour le refermer <3\n\nThème automnale !",
     categorie: "Pochette Livre",
     vendu: false,
@@ -141,7 +141,7 @@ const PRODUITS = [
     {
     id: "pochette-livres-de-poche-ou-manga-bleu-352",
     nom: "Pochette Livres de Poche ou Manga Bleu",
-    prix: 7,
+    prix: 4.5,
     description: "Petite pochette avec un noeud décoratif <3",
     categorie: "Pochette Livre",
     vendu: false,
@@ -180,7 +180,7 @@ const PRODUITS = [
   {
     id: "porte-cartes-bleu-150",
     nom: "Porte-Cartes Bleu",
-    prix: 5,
+    prix: 4.5,
     description: "Petit porte-cartes tout mignon qui se referme avec un bouton en forme de pomme <3",
     categorie: "Porte-Cartes",
     vendu: true,
@@ -225,7 +225,7 @@ const PRODUITS = [
   {
     id: "pochette-liseuse-ou-tablette-bordeaux-182",
     nom: "Pochette Liseuse ou Tablette Bordeaux",
-    prix: 14,
+    prix: 10.5,
     description: "Pochette bordeaux et noire pour liseuse, tablette, ou autre (produits de beauté, d'hygiène, etc.) avec un petit noeud en dentelle ainsi qu'un bouton en forme de coeur. Pièce unique faite à la main avec amour <3\n\nDimensions : environ 15cm (longueur) x 18 cm (largeur)",
     categorie: "Pochette liseuse",
     vendu: false,
@@ -248,7 +248,7 @@ const PRODUITS = [
    {
     id: "pochette-liseuse-ou-tablette-jaune-711",
     nom: "Pochette Liseuse ou Tablette Jaune",
-    prix: 14,
+    prix: 10.5,
     description: "Une pochette pour liseuse ou tablette jaune et turquoise, avec un bouton en forme d'étoile adorable <3",
     categorie: "Pochette liseuse",
     vendu: false,
@@ -299,7 +299,7 @@ const PRODUITS = [
   {
     id: "pochette-liseuse-ou-tablette-turquoise-342",
     nom: "Pochette Liseuse ou Tablette Turquoise",
-    prix: 14,
+    prix: 10.5,
     description: "Petite pochette pour votre liseuse ou tablette de couleur turquoise et rose, ainsi qu'un petit noeud très coquette !",
     categorie: "Pochette Liseuse",
     vendu: false,
@@ -316,7 +316,7 @@ const PRODUITS = [
     prix: 7.5,
     description: "Une petite pochette pour livres de poche, peut en accueillir jusque 2.",
     categorie: "Pochette Livre",
-    vendu: false,
+    vendu: true,
     photos: [
       "images/pochette-livres-rose-pastel1.jpeg",
       "images/pochette-livres-rose-pastel2.jpeg"

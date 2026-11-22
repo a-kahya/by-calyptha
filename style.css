@@ -424,17 +424,11 @@ html{ scroll-behavior:smooth; }
 .category-section{ scroll-margin-top:64px; }
 .category-nav{
   display:flex;
+  flex-wrap:wrap;
   gap:8px;
-  overflow-x:auto;
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:var(--cream);
-  margin:0 calc(-1 * var(--page-pad)) 14px;
-  padding:10px var(--page-pad);
-  scrollbar-width:none;
+  margin:0 0 14px;
+  padding:10px 0;
 }
-.category-nav::-webkit-scrollbar{ display:none; }
 .category-link{
   flex-shrink:0;
   background:var(--rose-pale);

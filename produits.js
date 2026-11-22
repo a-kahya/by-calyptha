@@ -462,4 +462,81 @@ const PRODUITS = [
       "images/lot-marque-page-pastel4.jpeg"
     ]
   },
+    {
+    id: "pochette-pastel-et-marron-livres-de-poche-971",
+    nom: "Pochette Pastel et Marron Livres de Poche",
+    prix: 4.5,
+    description: "Pochette pour ranger jusqu'à deux livres de poche.",
+    categorie: "Pochette Livre",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-pastel-marron1.jpeg",
+      "images/pochette-livres-pastel-marron2.jpeg",
+      "images/pochette-livres-pastel-marron3.jpeg"
+    ]
+  },
+    {
+    id: "trousse-a-maquillage-marron-357",
+    nom: "Trousse à Maquillage marron",
+    prix: 3.5,
+    description: "Petite trousse à maquillage marron",
+    categorie: "Trousse à Maquillage",
+    vendu: false,
+    photos: [
+      "images/trousse-maquillage-marron.jpeg"
+    ]
+  },
+    {
+    id: "porte-cartes-noir-et-rouge-604",
+    nom: "Porte-Cartes Noir et Rouge",
+    prix: 4.5,
+    description: "Petit porte-monnaie pour cartes rouge et noir.",
+    categorie: "Porte-Cartes",
+    vendu: false,
+    photos: [
+      "images/porte-cartes-noir-rouge1.jpeg",
+      "images/porte-cartes-noir-rouge2.jpeg",
+      "images/porte-cartes-noir-rouge3.jpeg",
+      "images/porte-cartes-noir-rouge4.jpeg"
+    ]
+  },
+    {
+    id: "pochette-livres-de-poche-ou-manga-violet-666",
+    nom: "Pochette Livres de Poche ou Manga Violet",
+    prix: 4.5,
+    description: "Pochette pour livres de poche violette.",
+    categorie: "Pochette Livre",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-violet1.jpeg",
+      "images/pochette-livres-violet2.jpeg",
+      "images/pochette-livres-violet3.jpeg"
+    ]
+  },
+    {
+    id: "porte-cartes-bleu-clair-325",
+    nom: "Porte-Cartes Bleu Clair",
+    prix: 4.5,
+    description: "Porte-monnaie pour cartes bleu clair.",
+    categorie: "Porte-Cartes",
+    vendu: false,
+    photos: [
+      "images/porte-carte-bleu-clair1.jpeg",
+      "images/porte-carte-bleu-clair2.jpeg",
+      "images/porte-carte-bleu-clair3.jpeg"
+    ]
+  },
+    {
+    id: "porte-cartes-rose-213",
+    nom: "Porte-Cartes Rose",
+    prix: 4.5,
+    description: "Porte-monnaie pour cartes rose.",
+    categorie: "Porte-Cartes",
+    vendu: false,
+    photos: [
+      "images/porte-carte-rose1.jpeg",
+      "images/porte-carte-rose2.jpeg",
+      "images/porte-carte-rose3.jpeg"
+    ]
+  },
 ];

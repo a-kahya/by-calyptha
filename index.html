@@ -56,7 +56,13 @@
     container.innerHTML = `<div class="empty-state"><div class="icon">🧵</div>La boutique est vide pour le moment, reviens bientôt !</div>`;
   }
   //on récup les catégories des produits existants, sans toucher le HTML
-  const categories = [...new Set(PRODUITS.map(p => p.categorie))];
+    // Ordre voulu ; les catégories non listées passent après, dans l'ordre de produits.js
+  const ORDRE_CATEGORIES = ["Marque-page", "Pochette livres", "Trousse à maquillage"];
+  const toutesCategories = [...new Set(PRODUITS.map(p => p.categorie))];
+  const categories = [
+    ...ORDRE_CATEGORIES.filter(c => toutesCategories.includes(c)),
+    ...toutesCategories.filter(c => !ORDRE_CATEGORIES.includes(c))
+  ];
 
   //on affiche la liste des produits par catégorie et les produits vendus vont en fin de liste
   categories.forEach(cat => {

@@ -36,7 +36,7 @@ const PRODUITS = [
     prix: 16,
     description: "Petite pochette pour votre liseuse (Kindle, Kobo) ou votre tablette. Elle peut également servir pour totalement autre chose si l'envie vous prend ! <3",
     categorie: "Pochette Liseuse",
-    vendu: false,
+    vendu: true,
     photos: [
       "images/pochette-liseuse-rose1.jpg",
       "images/pochette-liseuse-rose2.jpg",
@@ -227,7 +227,7 @@ const PRODUITS = [
     nom: "Pochette Liseuse ou Tablette Bordeaux",
     prix: 10.5,
     description: "Pochette bordeaux et noire pour liseuse, tablette, ou autre (produits de beauté, d'hygiène, etc.) avec un petit noeud en dentelle ainsi qu'un bouton en forme de coeur. Pièce unique faite à la main avec amour <3\n\nDimensions : environ 15cm (longueur) x 18 cm (largeur)",
-    categorie: "Pochette liseuse",
+    categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
       "images/pochette-bordeaux-liseuse.jpg"
@@ -250,7 +250,7 @@ const PRODUITS = [
     nom: "Pochette Liseuse ou Tablette Jaune",
     prix: 10.5,
     description: "Une pochette pour liseuse ou tablette jaune et turquoise, avec un bouton en forme d'étoile adorable <3",
-    categorie: "Pochette liseuse",
+    categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
       "images/pochette-liseuse-jaune.jpg",
@@ -333,5 +333,133 @@ const PRODUITS = [
       "images/sous-verre-etoile.jpg",
       "images/sous-verre-etoile2.jpg"
     ]
-  }
+  },
+    {
+    id: "trousse-a-maquillage-rose-rouge-631",
+    nom: "Trousse à Maquillage Rose/Rouge",
+    prix: 5.5,
+    description: "Petite trousse à maquillage aux couleurs de la Saint-Valentin! <3",
+    categorie: "Trousse à Maquillage",
+    vendu: false,
+    photos: [
+      "images/trousse-maquillage-rose-rouge1.jpeg",
+      "images/trousse-maquillage-rose-rouge2.jpeg",
+      "images/trousse-maquillage-rose-rouge3.jpeg",
+      "images/trousse-maquillage-rose-rouge4.jpeg"
+    ]
+  },
+    {
+    id: "trousse-a-maquillage-rose-117",
+    nom: "Trousse à Maquillage Rose",
+    prix: 5.5,
+    description: "Petite trousse à maquillage super mignonne !",
+    categorie: "Trousse à Maquillage",
+    vendu: false,
+    photos: [
+      "images/trousse-maquillage-rose1.jpeg",
+      "images/trousse-maquillage-rose2.jpeg",
+      "images/trousse-maquillage-rose3.jpeg"
+    ]
+  },
+    {
+    id: "trousse-a-maquillage-rose-a-bouton-brun-656",
+    nom: "Trousse à Maquillage Rose à Bouton Brun",
+    prix: 5.5,
+    description: "Petite trousse à maquillage super mignonne !",
+    categorie: "Trousse à Maquillage",
+    vendu: false,
+    photos: [
+      "images/trousse-maquillage-rose-bouton1.jpeg",
+      "images/trousse-maquillage-rose-bouton2.jpeg",
+      "images/trousse-maquillage-rose-bouton3.jpeg"
+    ]
+  },
+    {
+    id: "pochette-liseuse-ou-maquillage-fluttershy-269",
+    nom: "Pochette Liseuse ou Maquillage Fluttershy",
+    prix: 10.5,
+    description: "Pochette pour maquillage, liseuse ou tablette.",
+    categorie: "Pochette Liseuse",
+    vendu: false,
+    photos: [
+      "images/pochette-liseuse-pastel-jaune1.jpeg",
+      "images/pochette-liseuse-pastel-jaune2.jpeg",
+      "images/pochette-liseuse-pastel-jaune3.jpeg",
+      "images/pochette-liseuse-pastel-jaune4.jpeg"
+    ]
+  },
+    {
+    id: "pochette-liseuse-ou-tablette-bleu-electrique-412",
+    nom: "Pochette Liseuse ou Tablette Bleu Electrique",
+    prix: 10.5,
+    description: "Petite pochette bleue électrique pour liseuse, maquillage, ou tablette.",
+    categorie: "Pochette Liseuse",
+    vendu: false,
+    photos: [
+      "images/pochette-liseuse-bleu-electrique1.jpeg",
+      "images/pochette-liseuse-bleu-electrique2.jpeg",
+      "images/pochette-liseuse-bleu-electrique3.jpeg",
+      "images/pochette-liseuse-bleu-electrique4.jpeg"
+    ]
+  },
+    {
+    id: "lot-de-3-marque-pages-roses-834",
+    nom: "Lot de 3 marque-pages roses",
+    prix: 5.5,
+    description: "Un petit lot de 3 marque-pages en forme d'étoile <3",
+    categorie: "Marque-page",
+    vendu: false,
+    photos: [
+      "images/lot-marque-page-rose1.jpeg",
+      "images/lot-marque-page-rose2.jpeg"
+    ]
+  },
+    {
+    id: "lot-de-3-marque-pages-bleus-977",
+    nom: "Lot de 3 marque-pages bleus",
+    prix: 5.5,
+    description: "Un petit lot de 3 marque-pages bleus.",
+    categorie: "Marque-page",
+    vendu: false,
+    photos: [
+      "images/lot-marque-page-bleu.jpeg"
+    ]
+  },
+    {
+    id: "lot-de-3-marque-pages-de-noel-290",
+    nom: "Lot de 3 marque-pages de Noel",
+    prix: 5.5,
+    description: "Un lot de 3 marque-pages aux couleurs de Noel!",
+    categorie: "Marque-page",
+    vendu: false,
+    photos: [
+      "images/lot-marque-page-noel1.jpeg",
+      "images/lot-marque-page-noel2.jpeg"
+    ]
+  },
+    {
+    id: "lot-de-3-marque-pages-pastel-154",
+    nom: "Lot de 3 marque-pages Pastel",
+    prix: 5.5,
+    description: "Lot de 3 marque-pages en forme d'étoile.",
+    categorie: "Marque-page",
+    vendu: false,
+    photos: [
+      "images/lot-marque-page-pastel.jpeg"
+    ]
+  },
+    {
+    id: "lot-de-3-marque-pages-etoiles-544",
+    nom: "Lot de 3 marque-pages Etoiles",
+    prix: 5.5,
+    description: "Lot de 3 marque-pages super mignons!",
+    categorie: "Marque-page",
+    vendu: false,
+    photos: [
+      "images/lot-marque-page-pastel1.jpeg",
+      "images/lot-marque-page-pastel2.jpeg",
+      "images/lot-marque-page-pastel3.jpeg",
+      "images/lot-marque-page-pastel4.jpeg"
+    ]
+  },
 ];

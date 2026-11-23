@@ -492,7 +492,7 @@ const PRODUITS = [
     prix: 4.5,
     description: "Petit porte-monnaie pour cartes rouge et noir.",
     categorie: "Porte-Cartes",
-    vendu: false,
+    vendu: true,
     photos: [
       "images/porte-cartes-noir-rouge1.jpeg",
       "images/porte-cartes-noir-rouge2.jpeg",

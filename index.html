@@ -46,33 +46,18 @@
 <script src="produits.js"></script>
 <script src="panier.js"></script>
 <script src="favoris.js"></script>
-<!-- premier script: le code de cette page, utilise le code dans produits.js donc produits.js
+<!-- premier script: le code de cette page, utilise le code dans produits.js donc produits.js 
  doit être chargé AVANT le script de la page, sinon ça plante car variables n'existent pas encore-->
 <script>
   const container = document.getElementById("grid");
-  const categoryNav = document.getElementById("categoryNav");
 
   //petit msg si la liste des produits est vide
   if (PRODUITS.length === 0) {
     container.innerHTML = `<div class="empty-state"><div class="icon">🧵</div>La boutique est vide pour le moment, reviens bientôt !</div>`;
   }
-
-  // transforme "Pochette Livre" en "pochette livre" sans accents (pour les ancres #cat-...)
-  function slug(texte) {
-    return texte.toLowerCase()
-      .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  }
-
-  // version miniature d'une photo : images/xxx.jpeg -> images/thumbs/xxx.webp
-  function miniature(chemin) {
-    return chemin
-      .replace("images/", "images/thumbs/")
-      .replace(/\.(jpe?g|png)$/i, ".webp");
-  }
-
   //on récup les catégories des produits existants, sans toucher le HTML
-  // Ordre voulu ; les catégories non listées passent après, dans l'ordre de produits.js
-  const ORDRE_CATEGORIES = ["Marque-page", "Pochette Livre", "Pochette Liseuse", "Porte-Cartes", "Sous-Verre", "Trousse à Maquillage"];
+    // Ordre voulu ; les catégories non listées passent après, dans l'ordre de produits.js
+  const ORDRE_CATEGORIES = ["Marque-page", "Pochette livres", "Trousse à maquillage"];
   const toutesCategories = [...new Set(PRODUITS.map(p => p.categorie))];
   const categories = [
     ...ORDRE_CATEGORIES.filter(c => toutesCategories.includes(c)),
@@ -81,10 +66,16 @@
 
   //on affiche la liste des produits par catégorie et les produits vendus vont en fin de liste
   categories.forEach(cat => {
+      const categoryNav = document.getElementById("categoryNav");
+      function slug(texte) {
+        return texte.toLowerCase()
+          .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      }
     const produitsCategorie = PRODUITS
       .filter(p => p.categorie === cat)
       .sort((a, b) => (a.vendu === b.vendu) ? 0 : a.vendu ? 1 : -1);
 
+      //
     const section = document.createElement("section");
     section.className = "category-section";
     section.id = "cat-" + slug(cat);
@@ -98,18 +89,17 @@
 
     //on crée une carte produit pour chaque produit
     //le thumb c'est pour l'image, si article vendu, on écrit vendu, sinon rien
-    //photos[0] car dans produits.js, photos = [] est un tableau avec les noms des photos
-    //on récup le premier, en version miniature (images/thumbs/), pour que la boutique charge vite
+    //photos[0] car dans produits.js,  photos = [] est un tableau avec les noms des photos
+    //on récup le premier qu'on affiche comme thumbnaiol
     produitsCategorie.forEach(p => {
       const card = document.createElement("div");
       card.className = "card";
       card.innerHTML = `
         <a href="produit.html?id=${encodeURIComponent(p.id)}" style="display:contents;">
-
+          
           <div class="thumb">
             ${p.vendu ? `<span class="badge-sold">Vendu</span>` : ""}
-            <img src="${miniature(p.photos[0])}" alt="${p.nom}" loading="lazy" decoding="async"
-                 onerror="this.onerror=null;this.src='${p.photos[0]}'">
+            <img src="${p.photos[0]}" alt="${p.nom}" loading="lazy">
           </div>
 
           <div class="body">
@@ -151,7 +141,7 @@
       }
     });
   });
-  //afficherCompteursFavoris va chercher (via fetch dans favoris.js)
+  //afficherCompteursFavoris va chercher (via fetch dans favoris.js) 
   // le nombre de likes de chaque produit sur GoatCounter et le colle dans les <span data-like-count>
   afficherCompteursFavoris();
 </script>

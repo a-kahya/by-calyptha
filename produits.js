@@ -26,8 +26,8 @@ const PRODUITS = [
     categorie: "Pochette Livre",
     vendu: true,
     photos: [
-      "images/pochette-livres-rose-blanc.jpg",
-      "images/pochette-livres-rose-blanc2.jpg"
+      "images/pochette-livres-rose-blanc.webp",
+      "images/pochette-livres-rose-blanc2.webp"
     ]
   },*/
   {
@@ -38,10 +38,10 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: true,
     photos: [
-      "images/pochette-liseuse-rose1.jpg",
-      "images/pochette-liseuse-rose2.jpg",
-      "images/pochette-liseuse-rose3.jpg",
-      "images/pochette-liseuse-rose4.jpg"
+      "images/pochette-liseuse-rose1.webp",
+      "images/pochette-liseuse-rose2.webp",
+      "images/pochette-liseuse-rose3.webp",
+      "images/pochette-liseuse-rose4.webp"
     ]
   },
    {
@@ -52,10 +52,10 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
-      "images/pochette-brune-liseuse1.jpg",
-      "images/pochette-brune-liseuse2.jpg",
-      "images/pochette-brune-liseuse3.jpg",
-      "images/pochette-brune-liseuse4.jpg"
+      "images/pochette-brune-liseuse1.webp",
+      "images/pochette-brune-liseuse2.webp",
+      "images/pochette-brune-liseuse3.webp",
+      "images/pochette-brune-liseuse4.webp"
     ]
   },
   {
@@ -66,10 +66,10 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
-      "images/pochette-liseuse-marron1.jpg",
-      "images/pochette-liseuse-marron2.jpg",
-      "images/pochette-liseuse-marron3.jpg",
-      "images/pochette-liseuse-marron4.jpg"
+      "images/pochette-liseuse-marron1.webp",
+      "images/pochette-liseuse-marron2.webp",
+      "images/pochette-liseuse-marron3.webp",
+      "images/pochette-liseuse-marron4.webp"
     ]
   },
    {
@@ -80,10 +80,10 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
-      "images/pochette-liseuse-brun1.jpg",
-      "images/pochette-liseuse-brun2.jpg",
-      "images/pochette-liseuse-brun3.jpg",
-      "images/pochette-liseuse-brun4.jpg"
+      "images/pochette-liseuse-brun1.webp",
+      "images/pochette-liseuse-brun2.webp",
+      "images/pochette-liseuse-brun3.webp",
+      "images/pochette-liseuse-brun4.webp"
     ]
   },
   {
@@ -94,10 +94,10 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
-      "images/pochette-liseuse-carreaux1.jpg",
-      "images/pochette-liseuse-carreaux2.jpg",
-      "images/pochette-liseuse-carreaux3.jpg",
-      "images/pochette-liseuse-carreaux4.jpg"
+      "images/pochette-liseuse-carreaux1.webp",
+      "images/pochette-liseuse-carreaux2.webp",
+      "images/pochette-liseuse-carreaux3.webp",
+      "images/pochette-liseuse-carreaux4.webp"
     ]
   },
   /*{
@@ -108,9 +108,9 @@ const PRODUITS = [
     categorie: "Pochette Livre",
     vendu: true,
     photos: [
-      "images/pochette-livres-rose-vert3.jpg",
-      "images/pochette-livres-rose-vert2.jpg",
-      "images/pochette-livres-rose-vert.jpg"
+      "images/pochette-livres-rose-vert3.webp",
+      "images/pochette-livres-rose-vert2.webp",
+      "images/pochette-livres-rose-vert.webp"
     ]
   },*/
   /*{
@@ -121,9 +121,9 @@ const PRODUITS = [
     categorie: "Pochette Livre",
     vendu: false,
     photos: [
-      "images/pochette-livres-vert-blanc.jpg",
-      "images/pochette-livres-vert-blanc2.jpg",
-      "images/pochette-livres-vert-blanc3.jpg"
+      "images/pochette-livres-vert-blanc.webp",
+      "images/pochette-livres-vert-blanc2.webp",
+      "images/pochette-livres-vert-blanc3.webp"
     ]
   },*/
   {
@@ -134,8 +134,8 @@ const PRODUITS = [
     categorie: "Pochette Livre",
     vendu: false,
     photos: [
-      "images/pochette-livres-jaune-marron.jpg",
-      "images/pochette-livres-jaune-marron2.jpg"
+      "images/pochette-livres-jaune-marron.webp",
+      "images/pochette-livres-jaune-marron2.webp"
     ]
   },
     {
@@ -146,9 +146,9 @@ const PRODUITS = [
     categorie: "Pochette Livre",
     vendu: false,
     photos: [
-      "images/pochette-livres-bleu.jpg",
-      "images/pochette-livres-bleu2.jpg",
-      "images/pochette-livres-bleu3.jpg"
+      "images/pochette-livres-bleu.webp",
+      "images/pochette-livres-bleu2.webp",
+      "images/pochette-livres-bleu3.webp"
     ]
   },
     {
@@ -159,9 +159,9 @@ const PRODUITS = [
     categorie: "Pochette Livre",
     vendu: true,
     photos: [
-      "images/pochette-livres-rose-beige.jpg",
-      "images/pochette-livres-rose-beige2.jpg",
-      "images/pochette-livres-rose-beige3.jpg"
+      "images/pochette-livres-rose-beige.webp",
+      "images/pochette-livres-rose-beige2.webp",
+      "images/pochette-livres-rose-beige3.webp"
     ]
   },
   {
@@ -172,9 +172,9 @@ const PRODUITS = [
     categorie: "Pochette Livre",
     vendu: false,
     photos: [
-      "images/pochette-livres-bordeaux-mauve.jpg",
-      "images/pochette-livres-bordeaux-mauve2.jpg",
-      "images/pochette-livres-bordeaux-mauve3.jpg"
+      "images/pochette-livres-bordeaux-mauve.webp",
+      "images/pochette-livres-bordeaux-mauve2.webp",
+      "images/pochette-livres-bordeaux-mauve3.webp"
     ]
   },
   {
@@ -185,8 +185,8 @@ const PRODUITS = [
     categorie: "Porte-Cartes",
     vendu: true,
     photos: [
-      "images/porte-monnaie-bleu.jpg",
-      "images/porte-monnaie-bleu2.jpg"
+      "images/porte-monnaie-bleu.webp",
+      "images/porte-monnaie-bleu2.webp"
     ]
   },
   /*{
@@ -197,7 +197,7 @@ const PRODUITS = [
     categorie: "Marque-page",
     vendu: true,
     photos: [
-      "images/marque-page-etoile-vert.jpg"
+      "images/marque-page-etoile-vert.webp"
     ]
   },*/
   {
@@ -208,7 +208,7 @@ const PRODUITS = [
     categorie: "Marque-page",
     vendu: true,
     photos: [
-      "images/marque-page-etoile-jaune.jpg"
+      "images/marque-page-etoile-jaune.webp"
     ]
   },
   {
@@ -219,7 +219,7 @@ const PRODUITS = [
     categorie: "Marque-page",
     vendu: false,
     photos: [
-      "images/marque-page-etoile-blanc.jpg"
+      "images/marque-page-etoile-blanc.webp"
     ]
   },
   {
@@ -230,7 +230,7 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
-      "images/pochette-bordeaux-liseuse.jpg"
+      "images/pochette-bordeaux-liseuse.webp"
     ]
   },
   {
@@ -241,8 +241,8 @@ const PRODUITS = [
     categorie: "Sous-Verre",
     vendu: false,
     photos: [
-      "images/sous-verre-etoile-rose.jpg",
-      "images/sous-verre-etoile-rose2.jpg"
+      "images/sous-verre-etoile-rose.webp",
+      "images/sous-verre-etoile-rose2.webp"
     ]
   }, 
    {
@@ -253,10 +253,10 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
-      "images/pochette-liseuse-jaune.jpg",
-      "images/pochette-liseuse-jaune2.jpg",
-      "images/pochette-liseuse-jaune3.jpg",
-      "images/pochette-liseuse-jaune4.jpg"
+      "images/pochette-liseuse-jaune.webp",
+      "images/pochette-liseuse-jaune2.webp",
+      "images/pochette-liseuse-jaune3.webp",
+      "images/pochette-liseuse-jaune4.webp"
     ]
   },
     {
@@ -267,9 +267,9 @@ const PRODUITS = [
     categorie: "Sous-Verre",
     vendu: false,
     photos: [
-      "images/sous-verre-fleur-marine.jpg",
-      "images/sous-verre-fleur-marine2.jpg",
-      "images/sous-verre-fleur-marine3.jpg"
+      "images/sous-verre-fleur-marine.webp",
+      "images/sous-verre-fleur-marine2.webp",
+      "images/sous-verre-fleur-marine3.webp"
     ]
   },
     {
@@ -280,8 +280,8 @@ const PRODUITS = [
     categorie: "Sous-Verre",
     vendu: false,
     photos: [
-      "images/sous-verre-fleur-bleu.jpg",
-      "images/sous-verre-fleur-bleu2.jpg"
+      "images/sous-verre-fleur-bleu.webp",
+      "images/sous-verre-fleur-bleu2.webp"
     ]
   },
     {
@@ -292,8 +292,8 @@ const PRODUITS = [
     categorie: "Sous-Verre",
     vendu: false,
     photos: [
-      "images/sous-verre-noeud-vert.jpg",
-      "images/sous-verre-noeud-vert2.jpg"
+      "images/sous-verre-noeud-vert.webp",
+      "images/sous-verre-noeud-vert2.webp"
     ]
   },
   {
@@ -304,10 +304,10 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
-      "images/pochette-liseuse-turquoise.jpg",
-      "images/pochette-liseuse-turquoise2.jpg",
-      "images/pochette-liseuse-turquoise3.jpg",
-      "images/pochette-liseuse-turquoise4.jpg"
+      "images/pochette-liseuse-turquoise.webp",
+      "images/pochette-liseuse-turquoise2.webp",
+      "images/pochette-liseuse-turquoise3.webp",
+      "images/pochette-liseuse-turquoise4.webp"
     ]
   },
     {
@@ -318,8 +318,8 @@ const PRODUITS = [
     categorie: "Pochette Livre",
     vendu: true,
     photos: [
-      "images/pochette-livres-rose-pastel1.jpeg",
-      "images/pochette-livres-rose-pastel2.jpeg"
+      "images/pochette-livres-rose-pastel1.webp",
+      "images/pochette-livres-rose-pastel2.webp"
     ]
   },
   {
@@ -330,8 +330,8 @@ const PRODUITS = [
     categorie: "Sous-Verre",
     vendu: false,
     photos: [
-      "images/sous-verre-etoile.jpg",
-      "images/sous-verre-etoile2.jpg"
+      "images/sous-verre-etoile.webp",
+      "images/sous-verre-etoile2.webp"
     ]
   },
     {
@@ -342,10 +342,10 @@ const PRODUITS = [
     categorie: "Trousse à Maquillage",
     vendu: false,
     photos: [
-      "images/trousse-maquillage-rose-rouge1.jpeg",
-      "images/trousse-maquillage-rose-rouge2.jpeg",
-      "images/trousse-maquillage-rose-rouge3.jpeg",
-      "images/trousse-maquillage-rose-rouge4.jpeg"
+      "images/trousse-maquillage-rose-rouge1.webp",
+      "images/trousse-maquillage-rose-rouge2.webp",
+      "images/trousse-maquillage-rose-rouge3.webp",
+      "images/trousse-maquillage-rose-rouge4.webp"
     ]
   },
     {
@@ -356,9 +356,9 @@ const PRODUITS = [
     categorie: "Trousse à Maquillage",
     vendu: false,
     photos: [
-      "images/trousse-maquillage-rose1.jpeg",
-      "images/trousse-maquillage-rose2.jpeg",
-      "images/trousse-maquillage-rose3.jpeg"
+      "images/trousse-maquillage-rose1.webp",
+      "images/trousse-maquillage-rose2.webp",
+      "images/trousse-maquillage-rose3.webp"
     ]
   },
     {
@@ -369,9 +369,9 @@ const PRODUITS = [
     categorie: "Trousse à Maquillage",
     vendu: false,
     photos: [
-      "images/trousse-maquillage-rose-bouton1.jpeg",
-      "images/trousse-maquillage-rose-bouton2.jpeg",
-      "images/trousse-maquillage-rose-bouton3.jpeg"
+      "images/trousse-maquillage-rose-bouton1.webp",
+      "images/trousse-maquillage-rose-bouton2.webp",
+      "images/trousse-maquillage-rose-bouton3.webp"
     ]
   },
     {
@@ -382,10 +382,10 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
-      "images/pochette-liseuse-pastel-jaune1.jpeg",
-      "images/pochette-liseuse-pastel-jaune2.jpeg",
-      "images/pochette-liseuse-pastel-jaune3.jpeg",
-      "images/pochette-liseuse-pastel-jaune4.jpeg"
+      "images/pochette-liseuse-pastel-jaune1.webp",
+      "images/pochette-liseuse-pastel-jaune2.webp",
+      "images/pochette-liseuse-pastel-jaune3.webp",
+      "images/pochette-liseuse-pastel-jaune4.webp"
     ]
   },
     {
@@ -396,10 +396,10 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
-      "images/pochette-liseuse-bleu-electrique1.jpeg",
-      "images/pochette-liseuse-bleu-electrique2.jpeg",
-      "images/pochette-liseuse-bleu-electrique3.jpeg",
-      "images/pochette-liseuse-bleu-electrique4.jpeg"
+      "images/pochette-liseuse-bleu-electrique1.webp",
+      "images/pochette-liseuse-bleu-electrique2.webp",
+      "images/pochette-liseuse-bleu-electrique3.webp",
+      "images/pochette-liseuse-bleu-electrique4.webp"
     ]
   },
     {
@@ -410,8 +410,8 @@ const PRODUITS = [
     categorie: "Marque-page",
     vendu: false,
     photos: [
-      "images/lot-marque-page-rose1.jpeg",
-      "images/lot-marque-page-rose2.jpeg"
+      "images/lot-marque-page-rose1.webp",
+      "images/lot-marque-page-rose2.webp"
     ]
   },
     {
@@ -422,7 +422,7 @@ const PRODUITS = [
     categorie: "Marque-page",
     vendu: false,
     photos: [
-      "images/lot-marque-page-bleu.jpeg"
+      "images/lot-marque-page-bleu.webp"
     ]
   },
     {
@@ -433,8 +433,8 @@ const PRODUITS = [
     categorie: "Marque-page",
     vendu: false,
     photos: [
-      "images/lot-marque-page-noel1.jpeg",
-      "images/lot-marque-page-noel2.jpeg"
+      "images/lot-marque-page-noel1.webp",
+      "images/lot-marque-page-noel2.webp"
     ]
   },
     {
@@ -445,7 +445,7 @@ const PRODUITS = [
     categorie: "Marque-page",
     vendu: false,
     photos: [
-      "images/lot-marque-page-pastel.jpeg"
+      "images/lot-marque-page-pastel.webp"
     ]
   },
     {
@@ -456,10 +456,10 @@ const PRODUITS = [
     categorie: "Marque-page",
     vendu: false,
     photos: [
-      "images/lot-marque-page-pastel1.jpeg",
-      "images/lot-marque-page-pastel2.jpeg",
-      "images/lot-marque-page-pastel3.jpeg",
-      "images/lot-marque-page-pastel4.jpeg"
+      "images/lot-marque-page-pastel1.webp",
+      "images/lot-marque-page-pastel2.webp",
+      "images/lot-marque-page-pastel3.webp",
+      "images/lot-marque-page-pastel4.webp"
     ]
   },
     {
@@ -470,9 +470,9 @@ const PRODUITS = [
     categorie: "Pochette Livre",
     vendu: false,
     photos: [
-      "images/pochette-livres-pastel-marron1.jpeg",
-      "images/pochette-livres-pastel-marron2.jpeg",
-      "images/pochette-livres-pastel-marron3.jpeg"
+      "images/pochette-livres-pastel-marron1.webp",
+      "images/pochette-livres-pastel-marron2.webp",
+      "images/pochette-livres-pastel-marron3.webp"
     ]
   },
     {
@@ -483,7 +483,7 @@ const PRODUITS = [
     categorie: "Trousse à Maquillage",
     vendu: false,
     photos: [
-      "images/trousse-maquillage-marron.jpeg"
+      "images/trousse-maquillage-marron.webp"
     ]
   },
     {
@@ -494,10 +494,10 @@ const PRODUITS = [
     categorie: "Porte-Cartes",
     vendu: true,
     photos: [
-      "images/porte-cartes-noir-rouge1.jpeg",
-      "images/porte-cartes-noir-rouge2.jpeg",
-      "images/porte-cartes-noir-rouge3.jpeg",
-      "images/porte-cartes-noir-rouge4.jpeg"
+      "images/porte-cartes-noir-rouge1.webp",
+      "images/porte-cartes-noir-rouge2.webp",
+      "images/porte-cartes-noir-rouge3.webp",
+      "images/porte-cartes-noir-rouge4.webp"
     ]
   },
     {
@@ -508,9 +508,9 @@ const PRODUITS = [
     categorie: "Pochette Livre",
     vendu: false,
     photos: [
-      "images/pochette-livres-violet1.jpeg",
-      "images/pochette-livres-violet2.jpeg",
-      "images/pochette-livres-violet3.jpeg"
+      "images/pochette-livres-violet1.webp",
+      "images/pochette-livres-violet2.webp",
+      "images/pochette-livres-violet3.webp"
     ]
   },
     {
@@ -521,9 +521,9 @@ const PRODUITS = [
     categorie: "Porte-Cartes",
     vendu: false,
     photos: [
-      "images/porte-carte-bleu-clair1.jpeg",
-      "images/porte-carte-bleu-clair2.jpeg",
-      "images/porte-carte-bleu-clair3.jpeg"
+      "images/porte-carte-bleu-clair1.webp",
+      "images/porte-carte-bleu-clair2.webp",
+      "images/porte-carte-bleu-clair3.webp"
     ]
   },
     {
@@ -534,9 +534,9 @@ const PRODUITS = [
     categorie: "Porte-Cartes",
     vendu: false,
     photos: [
-      "images/porte-carte-rose1.jpeg",
-      "images/porte-carte-rose2.jpeg",
-      "images/porte-carte-rose3.jpeg"
+      "images/porte-carte-rose1.webp",
+      "images/porte-carte-rose2.webp",
+      "images/porte-carte-rose3.webp"
     ]
   },
 ];

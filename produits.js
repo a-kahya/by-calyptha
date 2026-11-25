@@ -183,10 +183,10 @@ const PRODUITS = [
     prix: 4.5,
     description: "Petit porte-cartes tout mignon qui se referme avec un bouton en forme de pomme <3",
     categorie: "Porte-Cartes",
-    vendu: true,
+    vendu: false,
     photos: [
-      "images/porte-monnaie-bleu.jpg",
-      "images/porte-monnaie-bleu2.jpg"
+      "images/porte-monnaie-bleu.webp",
+      "images/porte-monnaie-bleu2.webp"
     ]
   },
   /*{
@@ -241,8 +241,8 @@ const PRODUITS = [
     categorie: "Sous-Verre",
     vendu: false,
     photos: [
-      "images/sous-verre-etoile-rose.jpg",
-      "images/sous-verre-etoile-rose2.jpg"
+      "images/sous-verre-etoile-rose.webp",
+      "images/sous-verre-etoile-rose2.webp"
     ]
   }, 
    {
@@ -342,10 +342,10 @@ const PRODUITS = [
     categorie: "Trousse à Maquillage",
     vendu: false,
     photos: [
-      "images/trousse-maquillage-rose-rouge1.jpeg",
-      "images/trousse-maquillage-rose-rouge2.jpeg",
-      "images/trousse-maquillage-rose-rouge3.jpeg",
-      "images/trousse-maquillage-rose-rouge4.jpeg"
+      "images/trousse-maquillage-rose-rouge1.webp",
+      "images/trousse-maquillage-rose-rouge2.webp",
+      "images/trousse-maquillage-rose-rouge3.webp",
+      "images/trousse-maquillage-rose-rouge4.webp"
     ]
   },
     {
@@ -356,9 +356,9 @@ const PRODUITS = [
     categorie: "Trousse à Maquillage",
     vendu: false,
     photos: [
-      "images/trousse-maquillage-rose1.jpeg",
-      "images/trousse-maquillage-rose2.jpeg",
-      "images/trousse-maquillage-rose3.jpeg"
+      "images/trousse-maquillage-rose1.webp",
+      "images/trousse-maquillage-rose2.webp",
+      "images/trousse-maquillage-rose3.webp"
     ]
   },
     {
@@ -369,9 +369,9 @@ const PRODUITS = [
     categorie: "Trousse à Maquillage",
     vendu: false,
     photos: [
-      "images/trousse-maquillage-rose-bouton1.jpeg",
-      "images/trousse-maquillage-rose-bouton2.jpeg",
-      "images/trousse-maquillage-rose-bouton3.jpeg"
+      "images/trousse-maquillage-rose-bouton1.webp",
+      "images/trousse-maquillage-rose-bouton2.wepp",
+      "images/trousse-maquillage-rose-bouton3.webp"
     ]
   },
     {
@@ -396,10 +396,10 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
-      "images/pochette-liseuse-bleu-electrique1.jpeg",
-      "images/pochette-liseuse-bleu-electrique2.jpeg",
-      "images/pochette-liseuse-bleu-electrique3.jpeg",
-      "images/pochette-liseuse-bleu-electrique4.jpeg"
+      "images/pochette-liseuse-bleu-electrique1.webp",
+      "images/pochette-liseuse-bleu-electrique2.webp",
+      "images/pochette-liseuse-bleu-electrique3.webp",
+      "images/pochette-liseuse-bleu-electrique4.webp"
     ]
   },
     {
@@ -483,7 +483,7 @@ const PRODUITS = [
     categorie: "Trousse à Maquillage",
     vendu: false,
     photos: [
-      "images/trousse-maquillage-marron.jpeg"
+      "images/trousse-maquillage-marron.webp"
     ]
   },
     {
@@ -508,9 +508,9 @@ const PRODUITS = [
     categorie: "Pochette Livre",
     vendu: false,
     photos: [
-      "images/pochette-livres-violet1.jpeg",
-      "images/pochette-livres-violet2.jpeg",
-      "images/pochette-livres-violet3.jpeg"
+      "images/pochette-livres-violet1.webp",
+      "images/pochette-livres-violet2.webp",
+      "images/pochette-livres-violet3.webp"
     ]
   },
     {
@@ -521,9 +521,9 @@ const PRODUITS = [
     categorie: "Porte-Cartes",
     vendu: false,
     photos: [
-      "images/porte-carte-bleu-clair1.jpeg",
-      "images/porte-carte-bleu-clair2.jpeg",
-      "images/porte-carte-bleu-clair3.jpeg"
+      "images/porte-carte-bleu-clair1.webp",
+      "images/porte-carte-bleu-clair2.webp",
+      "images/porte-carte-bleu-clair3.webp"
     ]
   },
     {
@@ -534,9 +534,9 @@ const PRODUITS = [
     categorie: "Porte-Cartes",
     vendu: false,
     photos: [
-      "images/porte-carte-rose1.jpeg",
-      "images/porte-carte-rose2.jpeg",
-      "images/porte-carte-rose3.jpeg"
+      "images/porte-carte-rose1.webp",
+      "images/porte-carte-rose2.webp",
+      "images/porte-carte-rose3.webp"
     ]
   },
 ];

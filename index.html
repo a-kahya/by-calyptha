@@ -57,7 +57,7 @@
   }
   //on récup les catégories des produits existants, sans toucher le HTML
     // Ordre voulu ; les catégories non listées passent après, dans l'ordre de produits.js
-  const ORDRE_CATEGORIES = ["Marque-page", "Pochette livres", "Trousse à maquillage"];
+ const ORDRE_CATEGORIES = ["Marque-page", "Pochette Liseuse", "Trousse à Maquillage", "Pochette Livres"];
   const toutesCategories = [...new Set(PRODUITS.map(p => p.categorie))];
   const categories = [
     ...ORDRE_CATEGORIES.filter(c => toutesCategories.includes(c)),

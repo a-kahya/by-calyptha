@@ -557,20 +557,7 @@ const PRODUITS = [
     nom: "Pochette Livres de Poche ou Manga grise",
     prix: 6,
     description: "Une pochette de rangement pour vos livres de poche ou manga.",
-    categorie: "Pochette Livres",
-    vendu: false,
-    photos: [
-      "images/pochette-livres-gris1.webp",
-      "images/pochette-livres-gris2.webp",
-      "images/pochette-livres-gris3.webp"
-    ]
-  },
-    {
-    id: "pochette-livres-de-poche-ou-manga-grise-490",
-    nom: "Pochette Livres de Poche ou Manga grise",
-    prix: 6,
-    description: "Une pochette de rangement pour vos livres de poche ou manga.",
-    categorie: "Pochette Livres",
+    categorie: "Pochette Livre",
     vendu: false,
     photos: [
       "images/pochette-livres-gris1.webp",

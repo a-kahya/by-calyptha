@@ -538,4 +538,44 @@ const PRODUITS = [
       "images/porte-carte-rose3.webp"
     ]
   },
+    {
+    id: "pochette-tablette-rose-314",
+    nom: "Pochette Tablette Rose",
+    prix: 22,
+    description: "Une pochette de rangement pour une tablette ou un Ipad.",
+    categorie: "Pochette Tablette",
+    vendu: false,
+    photos: [
+      "images/pochette-tablette1.webp",
+      "images/pochette-tablette2.webp",
+      "images/pochette-tablette3.webp",
+      "images/pochette-tablette4.webp"
+    ]
+  },
+    {
+    id: "pochette-livres-de-poche-ou-manga-grise-490",
+    nom: "Pochette Livres de Poche ou Manga grise",
+    prix: 6,
+    description: "Une pochette de rangement pour vos livres de poche ou manga.",
+    categorie: "Pochette Livres",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-gris1.webp",
+      "images/pochette-livres-gris2.webp",
+      "images/pochette-livres-gris3.webp"
+    ]
+  },
+    {
+    id: "pochette-livres-de-poche-ou-manga-grise-490",
+    nom: "Pochette Livres de Poche ou Manga grise",
+    prix: 6,
+    description: "Une pochette de rangement pour vos livres de poche ou manga.",
+    categorie: "Pochette Livres",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-gris1.webp",
+      "images/pochette-livres-gris2.webp",
+      "images/pochette-livres-gris3.webp"
+    ]
+  },
 ];

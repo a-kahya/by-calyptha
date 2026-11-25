@@ -468,7 +468,7 @@ const PRODUITS = [
     prix: 4.5,
     description: "Pochette pour ranger jusqu'à deux livres de poche.",
     categorie: "Pochette Livre",
-    vendu: false,
+    vendu: true,
     photos: [
       "images/pochette-livres-pastel-marron1.jpeg",
       "images/pochette-livres-pastel-marron2.jpeg",

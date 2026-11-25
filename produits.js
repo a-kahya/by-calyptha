@@ -342,10 +342,9 @@ const PRODUITS = [
     categorie: "Trousse à Maquillage",
     vendu: false,
     photos: [
-      "images/trousse-maquillage-rose-rouge1.webp",
+      "images/trousse-maquillage-rose-rouge4.webp",
       "images/trousse-maquillage-rose-rouge2.webp",
-      "images/trousse-maquillage-rose-rouge3.webp",
-      "images/trousse-maquillage-rose-rouge4.webp"
+      "images/trousse-maquillage-rose-rouge3.webp"
     ]
   },
     {

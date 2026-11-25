@@ -410,8 +410,8 @@ const PRODUITS = [
     categorie: "Marque-page",
     vendu: false,
     photos: [
-      "images/lot-marque-page-rose1.jpeg",
-      "images/lot-marque-page-rose2.jpeg"
+      "images/lot-marque-page-rose1.webp",
+      "images/lot-marque-page-rose2.webp"
     ]
   },
     {
@@ -422,7 +422,7 @@ const PRODUITS = [
     categorie: "Marque-page",
     vendu: false,
     photos: [
-      "images/lot-marque-page-bleu.jpeg"
+      "images/lot-marque-page-bleu.webp"
     ]
   },
     {
@@ -433,8 +433,8 @@ const PRODUITS = [
     categorie: "Marque-page",
     vendu: false,
     photos: [
-      "images/lot-marque-page-noel1.jpeg",
-      "images/lot-marque-page-noel2.jpeg"
+      "images/lot-marque-page-noel1.webp",
+      "images/lot-marque-page-noel2.webp"
     ]
   },
     {
@@ -445,7 +445,7 @@ const PRODUITS = [
     categorie: "Marque-page",
     vendu: false,
     photos: [
-      "images/lot-marque-page-pastel.jpeg"
+      "images/lot-marque-page-pastel.webp"
     ]
   },
     {
@@ -456,10 +456,10 @@ const PRODUITS = [
     categorie: "Marque-page",
     vendu: false,
     photos: [
-      "images/lot-marque-page-pastel1.jpeg",
-      "images/lot-marque-page-pastel2.jpeg",
-      "images/lot-marque-page-pastel3.jpeg",
-      "images/lot-marque-page-pastel4.jpeg"
+      "images/lot-marque-page-pastel1.webp",
+      "images/lot-marque-page-pastel2.webp",
+      "images/lot-marque-page-pastel3.webp",
+      "images/lot-marque-page-pastel4.webp"
     ]
   },
     {

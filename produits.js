@@ -64,7 +64,7 @@ const PRODUITS = [
     prix: 10.5,
     description: "Une adorable pochette marron et rose pour votre liseuse ou votre tablette.",
     categorie: "Pochette Liseuse",
-    vendu: false,
+    vendu: true,
     photos: [
       "images/pochette-liseuse-marron1.jpg",
       "images/pochette-liseuse-marron2.jpg",

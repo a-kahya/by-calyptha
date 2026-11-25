@@ -48,8 +48,10 @@
 <script src="produits.js"></script>
 <script src="panier.js"></script>
 <script>
-  /* CONFIGURATION */
-  const PAYPAL_ME_ID = "aysekahya";  
+  /* =========================================================
+     CONFIGURATION — à adapter
+     ========================================================= */
+  const PAYPAL_ME_ID = "aysekahya";  // ton identifiant PayPal.me (sans "paypal.me/" devant)
 
   const EMAILJS_PUBLIC_KEY = "sPxGPSXqLgIhK07Sf";
   const EMAILJS_SERVICE_ID = "service_z6zx5xf";
@@ -75,28 +77,21 @@
       return;
     }
 
-    linesEl.innerHTML = articles.map(p => `
+    // calculerPanier() vient de panier.js : prix adaptés aux frais PayPal
+    const { port, total, sousTotal, prixLignes } = calculerPanier(articles);
+
+    linesEl.innerHTML = articles.map((p, i) => `
       <div class="cart-line">
         <img src="${p.photos[0]}" alt="${p.nom}">
         <div>
           <strong>${p.nom}</strong><br>
-          <span style="color:var(--plum-soft)">${formaterPrix(p.prix)}</span><br>
+          <span style="color:var(--plum-soft)">${formaterPrix(prixLignes[i])}</span><br>
           <button class="rm" data-id="${p.id}">Retirer</button>
         </div>
-        <div style="font-weight:900;">${formaterPrix(p.prix)}</div>
+        <div style="font-weight:900;">${formaterPrix(prixLignes[i])}</div>
       </div>
     `).join("");
 
-    //0 la valeur de départ, l'accumulateur initial
-    //(s, p) => s + p.prix c'est la fonction appelée pour chaque article, 
-    // avec deux paramètres de nature différente : s est l'accumulateur (le total calculé jusqu'ici), p est l'article courant
-    //À chaque tour, la fonction renvoie le nouveau total, qui devient s au tour suivant.
-    const sousTotal = articles.reduce((s, p) => s + p.prix, 0);
-    //calculerFraisPort vient de panier.js
-    const port = calculerFraisPort(articles.length);
-    const total = sousTotal + port;
-
-    //ici article${articles.length>1?"s":""}  ajoute un "s" au mot "article" seulement s'il y en a plus d'un, pour éviter d'afficher "1 articles"
     summaryEl.innerHTML = `
       <div class="summary-row"><span>Sous-total (${articles.length} article${articles.length>1?"s":""})</span><span>${formaterPrix(sousTotal)}</span></div>
       <div class="summary-row"><span>Frais de port (Mondial Relay)</span><span>${formaterPrix(port)}</span></div>
@@ -105,19 +100,14 @@
 
     document.querySelectorAll(".rm").forEach(btn => {
       btn.addEventListener("click", () => {
-        //location.reload recharge entièrement la page, pour mettre à jour l'affichage 
-        // plutôt que de recalculer et réinjecter juste la partie concernée, on relance toute la page depuis le début, ce qui refait tourner tout le script et donc réaffiche un panier à jour
         retirerDuPanier(btn.dataset.id);
         location.reload();
       });
     });
   }
-  //render en fait reprend la logique de l'affichage du panier 
-  // donc construire les lignes d'articles, calculer et afficher le sous-total/frais de port/total
-  //C'est bien de la logique, mais une logique de présentation, pas toute la logique du panier au sens large.
+
   render();
 
-  //validation du formulaire
   document.getElementById("orderBtn").addEventListener("click", async () => {
     const emailInput = document.getElementById("email");
     const paysInput = document.getElementById("pays");
@@ -136,32 +126,22 @@
       status.style.color = "#c0392b";
       status.textContent = "Merci d'indiquer ton pays de livraison.";
       paysInput.focus();
-      //return car sinon le reste du code va qd mm s'exécuter malgré les msg de correction d'email, pays
       return;
     }
 
-    const sousTotal = articles.reduce((s, p) => s + p.prix, 0);
-    const port = calculerFraisPort(articles.length);
-    const total = sousTotal + port;
-    //listeArticles = le texte qui affiche l'article et son prix, puis retour à la ligne
-    const listeArticles = articles.map(p => `- ${p.nom} (${formaterPrix(p.prix)})`).join("\n");
+    const { port, total, prixLignes } = calculerPanier(articles);
+    const listeArticles = articles.map((p, i) => `- ${p.nom} (${formaterPrix(prixLignes[i])})`).join("\n");
 
-    //pour préparer visuellement le bouton "Valider et payer" pendant l'envoie
-    //on le recup et on le désactive pour éviter un second clic et second envoie
     const btn = document.getElementById("orderBtn");
     btn.disabled = true;
     btn.textContent = "Envoi en cours...";
 
-    //on construit et encode le lien paypal avec encodeURIComponent
-    //toFixed(2) =  montant total, forcé à 2 décimales
     const lienPaypal = `https://paypal.me/${encodeURIComponent(PAYPAL_ME_ID)}/${total.toFixed(2)}EUR`;
 
     try {
-      //si soit EmailJS ne s'est pas chargé, soit la clé n'a jamais été configurée, on entre dans le if
       if (!window.emailjs || EMAILJS_PUBLIC_KEY === "TA_PUBLIC_KEY") {
         throw new Error("EmailJS non configuré");
       }
-      //construit les données pour l'émail --> même noms pour les templates sur EmailJS
       const donnees = {
         email_client: email,
         pays: pays,
@@ -170,7 +150,6 @@
         total: formaterPrix(total)
       };
       await Promise.all([
-        //on envoie les 2 emails en parallèle
         emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID_VENDEUSE, donnees),
         emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID_ACHETEUR, donnees)
       ]);

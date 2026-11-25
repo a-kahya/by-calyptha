@@ -80,10 +80,10 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
-      "images/pochette-liseuse-brun1.jpg",
-      "images/pochette-liseuse-brun2.jpg",
-      "images/pochette-liseuse-brun3.jpg",
-      "images/pochette-liseuse-brun4.jpg"
+      "images/pochette-liseuse-brun1.webp",
+      "images/pochette-liseuse-brun2.webp",
+      "images/pochette-liseuse-brun3.webp",
+      "images/pochette-liseuse-brun4.webp"
     ]
   },
   {
@@ -94,10 +94,10 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
-      "images/pochette-liseuse-carreaux1.jpg",
-      "images/pochette-liseuse-carreaux2.jpg",
-      "images/pochette-liseuse-carreaux3.jpg",
-      "images/pochette-liseuse-carreaux4.jpg"
+      "images/pochette-liseuse-carreaux1.webp",
+      "images/pochette-liseuse-carreaux2.webp",
+      "images/pochette-liseuse-carreaux3.webp",
+      "images/pochette-liseuse-carreaux4.webp"
     ]
   },
   /*{
@@ -253,10 +253,10 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
-      "images/pochette-liseuse-jaune.jpg",
-      "images/pochette-liseuse-jaune2.jpg",
-      "images/pochette-liseuse-jaune3.jpg",
-      "images/pochette-liseuse-jaune4.jpg"
+      "images/pochette-liseuse-jaune.webp",
+      "images/pochette-liseuse-jaune2.webp",
+      "images/pochette-liseuse-jaune3.webp",
+      "images/pochette-liseuse-jaune4.webp"
     ]
   },
     {
@@ -382,10 +382,10 @@ const PRODUITS = [
     categorie: "Pochette Liseuse",
     vendu: false,
     photos: [
-      "images/pochette-liseuse-pastel-jaune1.jpeg",
-      "images/pochette-liseuse-pastel-jaune2.jpeg",
-      "images/pochette-liseuse-pastel-jaune3.jpeg",
-      "images/pochette-liseuse-pastel-jaune4.jpeg"
+      "images/pochette-liseuse-pastel-jaune1.webp",
+      "images/pochette-liseuse-pastel-jaune2.webp",
+      "images/pochette-liseuse-pastel-jaune3.webp",
+      "images/pochette-liseuse-pastel-jaune4.webp"
     ]
   },
     {

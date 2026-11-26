@@ -565,4 +565,17 @@ const PRODUITS = [
       "images/pochette-livres-gris3.webp"
     ]
   },
+    {
+    id: "porte-cartes-rose-bonbon-711",
+    nom: "Porte-Cartes Rose Bonbon",
+    prix: 4,
+    description: "Un petit porte-monnaie pour vos cartes.",
+    categorie: "Porte-Cartes",
+    vendu: false,
+    photos: [
+      "images/porte-carte-rose-pastel1.webp",
+      "images/porte-carte-rose-pastel2.webp",
+      "images/porte-carte-rose-pastel3.webp"
+    ]
+  },
 ];

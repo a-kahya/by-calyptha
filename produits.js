@@ -46,7 +46,7 @@ const PRODUITS = [
   },
    {
     id: "pochette-liseuse-ou-tablette-brune-272",
-    nom: "Pochette Liseuse ou Tablette Brune",
+    nom: "Pochette Liseuse ou Tablette Brune/Noire",
     prix: 10.5,
     description: "Une pochette pour votre liseuse préférée, couleur brune peluche <3",
     categorie: "Pochette Liseuse",

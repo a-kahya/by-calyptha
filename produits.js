@@ -591,4 +591,85 @@ const PRODUITS = [
       "images/porte-carte-rose-pastel3.webp"
     ]
   },
+    {
+    id: "pochette-livres-de-poche-ou-manga-brun-632",
+    nom: "Pochette Livres de Poche ou Manga Brun",
+    prix: 7.2,
+    description: "Une petite pochette de rangement pour vos livres de poche.",
+    categorie: "Pochette Livre",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-brun1.webp",
+      "images/pochette-livres-brun2.webp"
+    ]
+  },
+    {
+    id: "pochette-livres-de-poche-ou-manga-corail-727",
+    nom: "Pochette Livres de Poche ou Manga Corail",
+    prix: 7.2,
+    description: "Une petite pochette de rangement pour vos livres de poche.",
+    categorie: "Pochette Livre",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-corail1.webp"
+    ]
+  },
+    {
+    id: "pochette-livres-de-poche-ou-manga-lilas-950",
+    nom: "Pochette Livres de Poche ou Manga Lilas",
+    prix: 7.2,
+    description: "Une petite pochette de rangement pour vos livres de poche.",
+    categorie: "Pochette Livre",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-lilas1.webp"
+    ]
+  },
+    {
+    id: "pochette-livres-de-poche-ou-manga-marine-241",
+    nom: "Pochette Livres de Poche ou Manga Marine",
+    prix: 7.2,
+    description: "Une petite pochette de rangement pour vos livres de poche.",
+    categorie: "Pochette Livre",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-marine1.webp",
+      "images/pochette-livres-marine2.webp"
+    ]
+  },
+    {
+    id: "pochette-livres-de-poche-ou-manga-pastel-rouge-502",
+    nom: "Pochette Livres de Poche ou Manga Pastel/Rouge",
+    prix: 7.2,
+    description: "Une petite pochette de rangement pour vos livres de poche.",
+    categorie: "Pochette Livre",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-pastel-rouge1.webp",
+      "images/pochette-livres-pastel-rouge2.webp"
+    ]
+  },
+    {
+    id: "pochette-livres-de-poche-ou-manga-rouge-blanc-272",
+    nom: "Pochette Livres de Poche ou Manga Rouge/Blanc",
+    prix: 7.2,
+    description: "Une petite pochette de rangement pour vos livres de poche.",
+    categorie: "Pochette Livre",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-rouge-blanc1.webp",
+      "images/pochette-livres-rouge-blanc2.webp"
+    ]
+  },
+    {
+    id: "pochette-livres-de-poche-ou-manga-vert-171",
+    nom: "Pochette Livres de Poche ou Manga Vert",
+    prix: 7.2,
+    description: "Une petite pochette de rangement pour vos livres de poche.",
+    categorie: "Pochette Livre",
+    vendu: false,
+    photos: [
+      "images/pochette-livres-vert1.webp"
+    ]
+  },
 ];

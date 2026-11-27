@@ -227,6 +227,52 @@ main{max-width:1200px;margin:0 auto;padding:26px var(--page-pad) 70px;}
 .voir-plus:active{transform:scale(.97);}
 .voir-plus[hidden]{display:none;}
 
+/* Petite intro en haut de la boutique */
+.intro{
+  background:var(--rose-pale);
+  border-radius:var(--radius-lg);
+  padding:22px 20px;
+  margin-bottom:22px;
+  text-align:center;
+}
+.intro p{
+  margin:0 auto 14px;
+  max-width:560px;
+  color:var(--plum-soft);
+  font-size:.95rem;
+}
+.intro .btn{padding:11px 22px;}
+.intro-pills{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+  margin-top:16px;
+}
+.intro-pill{
+  background:#fff;
+  color:var(--rose-deep);
+  font-size:.8rem;
+  font-weight:800;
+  padding:6px 12px;
+  border-radius:999px;
+}
+@media (min-width:640px){
+  .intro{padding:28px 32px;}
+  .intro p{font-size:1rem;}
+}
+
+/* Petit badge "Pièce unique" sur les cartes (clé unique: true dans produits.js) */
+.chip-unique{
+  align-self:flex-start;
+  background:var(--rose-pale);
+  color:var(--rose-deep);
+  font-size:.7rem;
+  font-weight:800;
+  padding:3px 9px;
+  border-radius:999px;
+}
+
 /* ===========================================================
    Boutons
    =========================================================== */

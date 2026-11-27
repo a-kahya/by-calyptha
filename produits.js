@@ -37,6 +37,7 @@ const PRODUITS = [
     description: "Petite pochette pour votre liseuse (Kindle, Kobo) ou votre tablette. Elle peut également servir pour totalement autre chose si l'envie vous prend ! <3",
     categorie: "Pochette Liseuse",
     vendu: true,
+    unique: true,
     photos: [
       "images/pochette-liseuse-rose1.jpg",
       "images/pochette-liseuse-rose2.jpg",
@@ -79,6 +80,7 @@ const PRODUITS = [
     description: "Une petite pochette marron avec des noeuds roses pâles adorables <3",
     categorie: "Pochette Liseuse",
     vendu: false,
+    unique: true,
     photos: [
       "images/pochette-liseuse-brun1.webp",
       "images/pochette-liseuse-brun2.webp",
@@ -133,6 +135,7 @@ const PRODUITS = [
     description: "Pochette pour ranger vos livres de poche ou vos mangas, avec un petit noeud tout coquette pour le refermer <3\n\nThème automnale !",
     categorie: "Pochette Livre",
     vendu: false,
+    unique: true,
     photos: [
       "images/pochette-livres-jaune-marron.jpg",
       "images/pochette-livres-jaune-marron2.jpg"
@@ -145,6 +148,7 @@ const PRODUITS = [
     description: "Petite pochette avec un noeud décoratif <3",
     categorie: "Pochette Livre",
     vendu: false,
+    unique: true,
     photos: [
       "images/pochette-livres-bleu.jpg",
       "images/pochette-livres-bleu2.jpg",
@@ -184,6 +188,7 @@ const PRODUITS = [
     description: "Petit porte-cartes tout mignon qui se referme avec un bouton en forme de pomme <3",
     categorie: "Porte-Cartes",
     vendu: false,
+    unique: true,
     photos: [
       "images/porte-monnaie-bleu.webp",
       "images/porte-monnaie-bleu2.webp"
@@ -266,6 +271,7 @@ const PRODUITS = [
     description: "Petit sous-verre en forme de fleur avec un noeud en déco, de couleur bleu marine ! <3",
     categorie: "Sous-Verre",
     vendu: false,
+    unique: true,
     photos: [
       "images/sous-verre-fleur-marine.jpg",
       "images/sous-verre-fleur-marine2.jpg",
@@ -279,6 +285,7 @@ const PRODUITS = [
     description: "Petit sous-verre en forme de fleur avec un noeud en déco ! <3",
     categorie: "Sous-Verre",
     vendu: false,
+    unique: true,
     photos: [
       "images/sous-verre-fleur-bleu.jpg",
       "images/sous-verre-fleur-bleu2.jpg"
@@ -303,6 +310,7 @@ const PRODUITS = [
     description: "Petite pochette pour votre liseuse ou tablette de couleur turquoise et rose, ainsi qu'un petit noeud très coquette !",
     categorie: "Pochette Liseuse",
     vendu: false,
+    unique: true,
     photos: [
       "images/pochette-liseuse-turquoise.jpg",
       "images/pochette-liseuse-turquoise2.jpg",
@@ -380,6 +388,7 @@ const PRODUITS = [
     description: "Pochette pour maquillage, liseuse ou tablette.",
     categorie: "Pochette Liseuse",
     vendu: false,
+    unique: true,
     photos: [
       "images/pochette-liseuse-pastel-jaune1.webp",
       "images/pochette-liseuse-pastel-jaune2.webp",
@@ -394,6 +403,7 @@ const PRODUITS = [
     description: "Petite pochette bleue électrique pour liseuse, maquillage, ou tablette.",
     categorie: "Pochette Liseuse",
     vendu: false,
+    unique: true,
     photos: [
       "images/pochette-liseuse-bleu-electrique1.webp",
       "images/pochette-liseuse-bleu-electrique2.webp",
@@ -545,6 +555,7 @@ const PRODUITS = [
     description: "Une pochette de rangement pour une tablette ou un Ipad.",
     categorie: "Pochette Tablette",
     vendu: false,
+    unique: true,
     photos: [
       "images/pochette-tablette1.webp",
       "images/pochette-tablette2.webp",
@@ -559,6 +570,7 @@ const PRODUITS = [
     description: "Une pochette de rangement pour vos livres de poche ou manga.",
     categorie: "Pochette Livre",
     vendu: false,
+    unique: true,
     photos: [
       "images/pochette-livres-gris1.webp",
       "images/pochette-livres-gris2.webp",
@@ -572,6 +584,7 @@ const PRODUITS = [
     description: "Un petit porte-monnaie pour vos cartes.",
     categorie: "Porte-Cartes",
     vendu: false,
+    unique: true,
     photos: [
       "images/porte-carte-rose-pastel1.webp",
       "images/porte-carte-rose-pastel2.webp",

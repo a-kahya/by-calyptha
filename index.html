@@ -35,6 +35,17 @@
 
 <!-- le main est vide, peuplé en JS à partir du fichier produits.js -->
 <main>
+  <!-- petite intro : ce que tu vends, un bouton vers la boutique, et 3 pastilles de réassurance -->
+  <section class="intro">
+    <p>Pochettes, marque-pages, sous-verres et petits accessoires au crochet. Chaque pièce est faite main, avec amour, et unique.</p>
+    <a class="btn btn-primary" href="#categoryNav">Voir la boutique 🛍️</a>
+    <div class="intro-pills">
+      <span class="intro-pill">🧶 Pièces uniques</span>
+      <span class="intro-pill">📦 Envoi via Mondial Relay</span>
+      <span class="intro-pill">💕 Fait main avec amour</span>
+    </div>
+  </section>
+
   <nav id="categoryNav" class="category-nav"></nav>
   <div id="grid"></div>
 </main>
@@ -119,6 +130,7 @@
 
           <div class="body">
             <h3>${p.nom}</h3>
+            ${p.unique ? `<span class="chip-unique">✨ Pièce unique</span>` : ""}
             <div class="price">${formaterPrix(prixAffiche(p.prix))}</div>
           </div>
         </a>

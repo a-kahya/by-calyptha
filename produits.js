@@ -580,7 +580,7 @@ const PRODUITS = [
     {
     id: "porte-cartes-rose-bonbon-711",
     nom: "Porte-Cartes Rose Bonbon",
-    prix: 4,
+    prix: 4.5,
     description: "Un petit porte-monnaie pour vos cartes.",
     categorie: "Porte-Cartes",
     vendu: false,

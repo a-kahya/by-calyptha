@@ -162,6 +162,11 @@ main{max-width:1200px;margin:0 auto;padding:26px var(--page-pad) 70px;}
   grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
   gap:16px;
 }
+/* Mobile : 2 colonnes fixes (sinon, sur un petit écran, la grille peut tomber à 1 seule colonne)
+   2 colonnes x 3 rangées = les 6 articles affichés à chaque fois */
+@media (max-width:639px){
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+}
 .card{
   background:#fff;
   border-radius:var(--radius-lg);
@@ -171,6 +176,8 @@ main{max-width:1200px;margin:0 auto;padding:26px var(--page-pad) 70px;}
   transition:transform .18s ease;
   position:relative;
 }
+/* sans cette règle, display:flex ci-dessus empêche l'attribut hidden de cacher la carte */
+.card[hidden]{display:none;}
 .card:hover{transform:translateY(-4px);}
 .card .thumb{
   aspect-ratio:1/1;
@@ -201,6 +208,24 @@ main{max-width:1200px;margin:0 auto;padding:26px var(--page-pad) 70px;}
 .thumb.vendu img{
   filter:grayscale(85%);
 }
+
+/* Bouton "Voir plus" sous chaque catégorie (utilisé sur mobile) */
+.voir-plus{
+  display:block;
+  margin:20px auto 0;
+  padding:11px 26px;
+  border:none;
+  border-radius:999px;
+  background:var(--rose-pale);
+  color:var(--rose-deep);
+  font-family:var(--font-body);
+  font-weight:800;
+  font-size:.95rem;
+  cursor:pointer;
+  transition:transform .12s ease;
+}
+.voir-plus:active{transform:scale(.97);}
+.voir-plus[hidden]{display:none;}
 
 /* ===========================================================
    Boutons

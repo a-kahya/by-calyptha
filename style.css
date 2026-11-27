@@ -227,6 +227,16 @@ main{max-width:1200px;margin:0 auto;padding:26px var(--page-pad) 70px;}
 .voir-plus:active{transform:scale(.97);}
 .voir-plus[hidden]{display:none;}
 
+/* Titre de la page, juste au-dessus de l'intro (dans le main) */
+.page-title{
+  font-family:var(--font-display);
+  font-size:clamp(1.5rem,4vw,2.1rem);
+  line-height:1.15;
+  color:var(--rose-deep);
+  text-align:center;
+  margin:0 0 16px;
+}
+
 /* Petite intro en haut de la boutique */
 .intro{
   background:var(--rose-pale);
@@ -239,6 +249,8 @@ main{max-width:1200px;margin:0 auto;padding:26px var(--page-pad) 70px;}
   margin:0 auto 14px;
   max-width:560px;
   color:var(--plum-soft);
+  font-family:var(--font-display);
+  font-weight:500;
   font-size:.95rem;
 }
 .intro .btn{padding:11px 22px;}
@@ -510,3 +522,9 @@ html{ scroll-behavior:smooth; }
   border-radius:999px;
 }
 .category-link:active{ background:var(--rose-deep); color:#fff; }
+
+@media (max-width:639px){
+  .header-row{justify-content:center;}
+  nav.header-nav{flex-wrap:wrap;justify-content:center;gap:8px 14px;width:100%;}
+  .hero-strip{text-align:center;}
+}

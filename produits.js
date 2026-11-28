@@ -429,7 +429,7 @@ const PRODUITS = [
     prix: 5.5,
     description: "Un petit lot de 3 marque-pages bleus.",
     categorie: "Marque-page",
-    vendu: false,
+    vendu: true,
     photos: [
       "images/lot-marque-page-bleu.webp"
     ]
